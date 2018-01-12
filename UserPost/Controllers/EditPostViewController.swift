@@ -14,6 +14,9 @@ class EditPostViewController: UIViewController {
     let createNewTitle = "Create New Post"
     let editTitle = "Edit Post"
     let textViewHeight = 100.0
+    let labelFontSize = 16.0
+    let titleText = "Title:"
+    let bodyText = "Body:"
     
     var post = Post() {
         didSet {
@@ -46,11 +49,11 @@ class EditPostViewController: UIViewController {
     }
     
     private func setupViews() {
-        postTitleLabel = BaseLabel(fontSize: 16.0, text: "Title:", view: view)
+        postTitleLabel = BaseLabel(fontSize: labelFontSize, text: titleText, view: view)
         postTitleTextField.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(postTitleTextField)
         
-        postBodyLabel = BaseLabel(fontSize: 16.0, text: "Body:", view: view)
+        postBodyLabel = BaseLabel(fontSize: labelFontSize, text: bodyText, view: view)
         postBodyTextView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(postBodyTextView)
         
