@@ -20,4 +20,8 @@ class PostViewController: UIViewController {
         postTable.lhs_fillHeightOfSuperview()
         postTable.lhs_fillWidthOfSuperview()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }

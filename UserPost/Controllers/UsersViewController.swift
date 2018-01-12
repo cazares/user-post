@@ -22,6 +22,7 @@ class UsersViewController: UIViewController {
         
         view.backgroundColor = .white
         
+        userTable.usersViewController = self
         view.addSubview(userTable)
         
         userTable.lhs_fillWidthOfSuperview()

@@ -13,7 +13,6 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     let userRowHeight = CGFloat(120)
     
     var postViewController = PostViewController()
-    var postNavController: UINavigationController!
     weak var usersViewController: UsersViewController!
     
     var users = [User]() {
@@ -54,7 +53,7 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        
+        usersViewController.navigationController?.pushViewController(postViewController, animated: true)
     }
     
     required init?(coder aDecoder: NSCoder) {
