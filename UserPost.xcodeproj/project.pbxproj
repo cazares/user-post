@@ -26,6 +26,7 @@
 		735F7EFF200837BE00B6668A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EFE200837BE00B6668A /* BaseTableViewCell.swift */; };
 		735F7F012008386600B6668A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F002008386600B6668A /* PostTableViewCell.swift */; };
 		735F7F032008422A00B6668A /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F022008422A00B6668A /* EditPostViewController.swift */; };
+		735F7F052008474300B6668A /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F042008474300B6668A /* BaseLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		735F7EFE200837BE00B6668A /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		735F7F002008386600B6668A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		735F7F022008422A00B6668A /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		735F7F042008474300B6668A /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
 		D3463C5243B127995268CC6D /* Pods-UserPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserPost/Pods-UserPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				735F7EFE200837BE00B6668A /* BaseTableViewCell.swift */,
+				735F7F042008474300B6668A /* BaseLabel.swift */,
 			);
 			path = "Base Components";
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				735F7EF82008330C00B6668A /* PostsViewController.swift in Sources */,
+				735F7F052008474300B6668A /* BaseLabel.swift in Sources */,
 				7343E919200801B800066741 /* USPAPIClient.m in Sources */,
 				7343E8E92007FC7E00066741 /* UsersViewController.swift in Sources */,
 				735F7EF420080A7C00B6668A /* User.swift in Sources */,

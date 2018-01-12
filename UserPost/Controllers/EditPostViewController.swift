@@ -8,24 +8,27 @@
 
 import UIKit
 
-enum postModes {
-    case createNew
-    case edit
-}
-
 class EditPostViewController: UIViewController {
     let cancelTitle = "Cancel"
     let saveTitle = "Save"
     let createNewTitle = "Create New Post"
     let editTitle = "Edit Post"
+    let labelFontSize = 16.0
+    let postTitleTitle = "Title:"
+    let bodyTitle = "Body:"
     
-    var postMode: postModes! {
+    var post = Post()! {
         didSet {
+            resetFields()
             resetTitle()
         }
     }
     
-    var post = Post()
+    private var postTitleLabel = BaseLabel(fontSize: labelFontSize, text: postTitleTitle, view: view)
+    private var postTitleTextField = UITextField(frame: .zero)
+    
+    private var postBodyLabel = BaseLabel(fontSize: labelFontSize, text: bodyTitle, view: view)
+    private var postBodyTextView = UITextView(frame: .zero)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,12 @@ class EditPostViewController: UIViewController {
     private func setupViewController() {
         view.backgroundColor = backgroundColor
         
+        postTitleTextField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(postTitleTextField)
+        
+        postBodyTextView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(postBodyTextView)
+        
         let cancelButton = UIBarButtonItem(title: cancelTitle, style: .plain, target: self, action: #selector(dismissViewController))
         navigationItem.leftBarButtonItem = cancelButton
         
@@ -43,17 +52,13 @@ class EditPostViewController: UIViewController {
         navigationItem.rightBarButtonItem = saveButton
     }
     
+    private func resetFields() {
+        postTitleTextField.text = post.title
+        postBodyTextView.text = post.body
+    }
+    
     private func resetTitle() {
-        switch(postMode) {
-        case .createNew:
-            title = createNewTitle
-            
-        case .edit:
-            title = editTitle
-        
-        default:
-            title = createNewTitle
-        }
+        title = post == nil ? createNewTitle : editTitle
     }
     
     public func dismissViewController() {
