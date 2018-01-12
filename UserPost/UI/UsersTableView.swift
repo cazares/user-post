@@ -68,6 +68,7 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         
         let createNewAction = UIAlertAction(title: createNewPostTitle, style: .default, handler: { _ in
             self.editPostViewController.post = nil
+            self.editPostViewController.postMode = .createNew
             self.usersViewController.navigationController?.present(self.editPostNavController, animated: true, completion: nil)
         })
         actionSheet.addAction(createNewAction)
