@@ -73,6 +73,9 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         })
         actionSheet.addAction(deleteAction)
         
+        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler:nil)
+        actionSheet.addAction(cancelAction)
+        
         postsViewController.navigationController?.present(actionSheet, animated: true, completion: nil)
     }
     

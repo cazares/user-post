@@ -69,7 +69,9 @@ class PostsViewController: UIViewController {
     }
     
     private func sortPostsWithAscending(_ ascending: Bool) {
-        self.postTable.posts.sort { ascending ? $0.title < $1.title : $0.title > $1.title }
+        self.postTable.posts.sort {
+            ascending ? $0.title.localizedLowercase < $1.title.localizedLowercase : $0.title.localizedLowercase > $1.title.localizedLowercase
+        }
         self.postTable.reloadData()
     }
     
