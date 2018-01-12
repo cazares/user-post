@@ -11,6 +11,8 @@ import UIKit
 class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     let cellIdentifier = "usersTableViewCellIdentifier"
     let userRowHeight = CGFloat(120)
+    let viewPostsTitle = "View Posts"
+    let createNewPostTitle = "Create New Post"
     
     var postViewController = PostsViewController()
     weak var usersViewController: UsersViewController!
@@ -52,8 +54,20 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let user = users[indexPath.row]
-        postViewController.user = user
-        usersViewController.navigationController?.pushViewController(postViewController, animated: true)
+        
+        let actionSheet = UIAlertController(title: user.name, message: nil, preferredStyle: .actionSheet)
+        let viewAction = UIAlertAction(title: viewPostsTitle, style: .default, handler: { _ in
+            self.postViewController.user = user
+            self.usersViewController.navigationController?.pushViewController(self.postViewController, animated: true)
+        })
+        actionSheet.addAction(viewAction)
+        
+        let createNewAction = UIAlertAction(title: createNewPostTitle, style: .default, handler: { _ in
+            
+        })
+        actionSheet.addAction(createNewAction)
+        
+        usersViewController.navigationController?.present(actionSheet, animated: true, completion: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
