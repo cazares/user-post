@@ -40,15 +40,10 @@ class EditPostViewController: UIViewController {
         setupViews()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // no idea why this isn't working in setupViewController/viewDidLoad
-        view.backgroundColor = .red
-    }
-    
     private func setupViewController() {
         extendedLayoutIncludesOpaqueBars = false
         edgesForExtendedLayout = []
+        view.backgroundColor = bgColor
         
         let cancelButton = UIBarButtonItem(title: cancelTitle, style: .plain, target: self, action: #selector(dismissViewController))
         navigationItem.leftBarButtonItem = cancelButton

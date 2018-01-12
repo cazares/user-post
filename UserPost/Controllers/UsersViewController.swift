@@ -18,7 +18,7 @@ class UsersViewController: UIViewController {
         super.viewDidLoad()
         title = viewTitle
         
-        view.backgroundColor = .white
+        view.backgroundColor = bgColor
         
         userTable.usersViewController = self
         view.addSubview(userTable)

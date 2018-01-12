@@ -23,6 +23,7 @@ class PostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = bgColor
         view.addSubview(postTable)
         
         postTable.lhs_fillHeightOfSuperview()

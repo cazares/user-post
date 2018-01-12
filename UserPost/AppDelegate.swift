@@ -9,8 +9,7 @@
 import UIKit
 
 let topNavColor: UIColor = .red
-let backgroundRGB = CGFloat(238)
-let backgroundColor = UIColor(red: backgroundRGB, green: backgroundRGB, blue: backgroundRGB, alpha: CGFloat(1.0))
+let bgColor = UIColor(red: 238.0/255.0, green: 238/255.0, blue: 238/255.0, alpha: CGFloat(1.0))
 let emptyString = ""
 let padding = CGFloat(10.0)
 

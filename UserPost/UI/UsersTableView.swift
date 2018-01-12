@@ -32,7 +32,7 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         register(UserTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         dataSource = self
         delegate = self
-        backgroundColor = backgroundColor
+        backgroundColor = bgColor
         
         editPostNavController = UINavigationController(rootViewController: editPostViewController)
     }

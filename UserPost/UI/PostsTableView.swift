@@ -25,7 +25,7 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         register(PostTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         dataSource = self
         delegate = self
-        backgroundColor = backgroundColor
+        backgroundColor = bgColor
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
