@@ -29,6 +29,8 @@ class EditPostViewController: UIViewController {
         }
     }
     
+    var modifyType: ModifyPostType!
+    
     private var postTitleLabel: BaseLabel!
     private var postTitleTextField = UITextField(frame: .zero)
     
@@ -123,6 +125,6 @@ class EditPostViewController: UIViewController {
         newPost.title = newTitle
         newPost.body = newBody
         
-        USPAPIClient.shared().modifyPost(with: newPost, modifyPostType: ModifyPostType.CreateNew, success: onSuccess, failure: onFailure)
+        USPAPIClient.shared().modifyPost(with: newPost, modifyPostType: modifyType, success: onSuccess, failure: onFailure)
     }
 }
