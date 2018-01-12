@@ -22,6 +22,9 @@
 		735F7EF620080AB600B6668A /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF520080AB600B6668A /* Address.swift */; };
 		735F7EF82008330C00B6668A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF72008330C00B6668A /* PostViewController.swift */; };
 		735F7EFA2008332600B6668A /* PostTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF92008332600B6668A /* PostTableView.swift */; };
+		735F7EFC2008371400B6668A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EFB2008371400B6668A /* Post.swift */; };
+		735F7EFF200837BE00B6668A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EFE200837BE00B6668A /* BaseTableViewCell.swift */; };
+		735F7F012008386600B6668A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F002008386600B6668A /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		735F7EF520080AB600B6668A /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		735F7EF72008330C00B6668A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		735F7EF92008332600B6668A /* PostTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableView.swift; sourceTree = "<group>"; };
+		735F7EFB2008371400B6668A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		735F7EFE200837BE00B6668A /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		735F7F002008386600B6668A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		D3463C5243B127995268CC6D /* Pods-UserPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserPost/Pods-UserPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +134,7 @@
 		7343E8E52007FC7E00066741 /* UserPost */ = {
 			isa = PBXGroup;
 			children = (
+				735F7EFD2008379E00B6668A /* Base Components */,
 				7343E921200809A600066741 /* Model */,
 				7343E91C2008076E00066741 /* UI */,
 				7343E9162008004600066741 /* API */,
@@ -184,6 +191,7 @@
 				7343E91D2008078C00066741 /* UsersTableView.swift */,
 				7343E91F200807B700066741 /* UserTableViewCell.swift */,
 				735F7EF92008332600B6668A /* PostTableView.swift */,
+				735F7F002008386600B6668A /* PostTableViewCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -193,8 +201,17 @@
 			children = (
 				735F7EF320080A7C00B6668A /* User.swift */,
 				735F7EF520080AB600B6668A /* Address.swift */,
+				735F7EFB2008371400B6668A /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		735F7EFD2008379E00B6668A /* Base Components */ = {
+			isa = PBXGroup;
+			children = (
+				735F7EFE200837BE00B6668A /* BaseTableViewCell.swift */,
+			);
+			path = "Base Components";
 			sourceTree = "<group>";
 		};
 		D154B2C4845E6AF8C54ABB3E /* Pods */ = {
@@ -410,10 +427,13 @@
 				7343E8E92007FC7E00066741 /* UsersViewController.swift in Sources */,
 				735F7EF420080A7C00B6668A /* User.swift in Sources */,
 				7343E91E2008078C00066741 /* UsersTableView.swift in Sources */,
+				735F7EFF200837BE00B6668A /* BaseTableViewCell.swift in Sources */,
 				735F7EFA2008332600B6668A /* PostTableView.swift in Sources */,
 				7343E8E72007FC7E00066741 /* AppDelegate.swift in Sources */,
 				7343E920200807B700066741 /* UserTableViewCell.swift in Sources */,
 				735F7EF620080AB600B6668A /* Address.swift in Sources */,
+				735F7EFC2008371400B6668A /* Post.swift in Sources */,
+				735F7F012008386600B6668A /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

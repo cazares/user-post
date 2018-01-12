@@ -22,7 +22,6 @@ class UsersViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        userTable.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(userTable)
         
         userTable.lhs_fillWidthOfSuperview()

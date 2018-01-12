@@ -9,8 +9,12 @@
 import UIKit
 
 class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
-    let cellIdentifier = "cellIdentifier"
+    let cellIdentifier = "usersTableViewCellIdentifier"
     let userRowHeight = CGFloat(120)
+    
+    var postViewController = PostViewController()
+    var postNavController: UINavigationController!
+    weak var usersViewController: UsersViewController!
     
     var users = [User]() {
         didSet {
@@ -25,7 +29,9 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         register(UserTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         dataSource = self
         delegate = self
-        backgroundColor = .white
+        backgroundColor = backgroundColor
+        
+        postNavController = UINavigationController(rootViewController: postViewController)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +49,12 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         cell.user = user
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -10,9 +10,14 @@ import UIKit
 
 class PostViewController: UIViewController {
 
+    var postTable = PostTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.addSubview(postTable)
         
+        postTable.lhs_fillHeightOfSuperview()
+        postTable.lhs_fillWidthOfSuperview()
     }
 }

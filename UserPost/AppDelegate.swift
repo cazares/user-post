@@ -8,7 +8,9 @@
 
 import UIKit
 
-let topNavColor: UIColor? = .red
+let topNavColor = .red
+let backgroundRGB = CGFloat(238)
+let backgroundColor = UIColor(red: backgroundRGB, green: backgroundRGB, blue: backgroundRGB, alpha: CGFloat(1.0))
 let emptyString = ""
 
 @UIApplicationMain
