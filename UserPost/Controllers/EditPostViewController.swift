@@ -13,37 +13,30 @@ class EditPostViewController: UIViewController {
     let saveTitle = "Save"
     let createNewTitle = "Create New Post"
     let editTitle = "Edit Post"
-    let labelFontSize = 16.0
-    let postTitleTitle = "Title:"
-    let bodyTitle = "Body:"
+    let textViewHeight = 100.0
     
-    var post = Post()! {
+    var post = Post() {
         didSet {
             resetFields()
             resetTitle()
         }
     }
     
-    private var postTitleLabel = BaseLabel(fontSize: labelFontSize, text: postTitleTitle, view: view)
+    private var postTitleLabel: BaseLabel!
     private var postTitleTextField = UITextField(frame: .zero)
     
-    private var postBodyLabel = BaseLabel(fontSize: labelFontSize, text: bodyTitle, view: view)
+    private var postBodyLabel: BaseLabel!
     private var postBodyTextView = UITextView(frame: .zero)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupViewController()
+        setupViews()
     }
     
     private func setupViewController() {
         view.backgroundColor = backgroundColor
-        
-        postTitleTextField.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(postTitleTextField)
-        
-        postBodyTextView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(postBodyTextView)
         
         let cancelButton = UIBarButtonItem(title: cancelTitle, style: .plain, target: self, action: #selector(dismissViewController))
         navigationItem.leftBarButtonItem = cancelButton
@@ -52,9 +45,38 @@ class EditPostViewController: UIViewController {
         navigationItem.rightBarButtonItem = saveButton
     }
     
+    private func setupViews() {
+        postTitleLabel = BaseLabel(fontSize: 16.0, text: "Title:", view: view)
+        postTitleTextField.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(postTitleTextField)
+        
+        postBodyLabel = BaseLabel(fontSize: 16.0, text: "Body:", view: view)
+        postBodyTextView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(postBodyTextView)
+        
+        let views = [ "titleLabel": postTitleLabel,
+                      "titleTextField": postTitleTextField,
+                      "bodyLabel": postBodyLabel,
+                      "bodyTextView": postBodyTextView ] as [String: AnyHashable]
+        let metrics = [ "pad": padding,
+                        "textViewHeight": textViewHeight ] as [String: AnyHashable]
+        
+        view.lhs_addConstraints("V:|-(pad)-[titleLabel]-[titleTextField]-[bodyLabel]-[bodyTextView(textViewHeight)]", metrics: metrics, views: views)
+        
+        setHorizontalConstraintsForView(postTitleLabel, metrics: metrics)
+        setHorizontalConstraintsForView(postTitleTextField, metrics: metrics)
+        setHorizontalConstraintsForView(postBodyLabel, metrics: metrics)
+        setHorizontalConstraintsForView(postBodyTextView, metrics: metrics)
+    }
+    
+    private func setHorizontalConstraintsForView(_ view: UIView, metrics: [String: AnyHashable]) {
+        let views = [ "view": view ]
+        self.view.lhs_addConstraints("H:|-(pad)-[view]-(pad)-|", metrics: metrics, views: views)
+    }
+    
     private func resetFields() {
-        postTitleTextField.text = post.title
-        postBodyTextView.text = post.body
+        postTitleTextField.text = post?.title
+        postBodyTextView.text = post?.body
     }
     
     private func resetTitle() {

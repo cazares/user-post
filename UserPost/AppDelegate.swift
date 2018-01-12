@@ -12,6 +12,7 @@ let topNavColor: UIColor = .red
 let backgroundRGB = CGFloat(238)
 let backgroundColor = UIColor(red: backgroundRGB, green: backgroundRGB, blue: backgroundRGB, alpha: CGFloat(1.0))
 let emptyString = ""
+let padding = CGFloat(10.0)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -13,7 +13,6 @@ class BaseTableViewCell: UITableViewCell {
     let usernameLabelFontSize = CGFloat(15.0)
     let addressLabelFontSize = CGFloat(12.0)
     let numAddressLines = 4
-    let padding = CGFloat(10.0)
     
     private var label: UILabel!
     internal var labelText = emptyString {

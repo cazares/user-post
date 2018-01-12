@@ -12,8 +12,6 @@ import SwiftSpinner
 class UsersViewController: UIViewController {
 
     let viewTitle = "Users"
-    let searchWidth = CGFloat(300)
-    let searchHeight = CGFloat(34)
     let userTable = UsersTableView()
     
     override func viewDidLoad() {
