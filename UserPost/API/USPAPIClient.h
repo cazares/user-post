@@ -11,8 +11,17 @@
 
 static NSString *kUSPBaseUrl = @"https://mobile-code-test.ifactornotifi.com/json";
 
+typedef void (^USPEmptyBlock)();
 typedef void (^USPGenericBlock)(id JSON);
 typedef void (^USPErrorBlock)(NSError *error);
+
+typedef enum : NSUInteger {
+    CreateNew,
+    Edit,
+    Delete
+} ModifyPostType;
+
+@class Post;
 
 @interface USPAPIClient : AFHTTPSessionManager
 
@@ -24,5 +33,10 @@ typedef void (^USPErrorBlock)(NSError *error);
 - (void)getPostsWithUserId:(NSInteger)userId
                    success:(USPGenericBlock)success
                    failure:(USPErrorBlock)failure;
+
+- (void)modifyPost:(Post)post
+    modifyPostType:(ModifyPostType)modifyPostType
+           success:(USPEmptyBlock)success
+           failure:(USPErrorBlock)failure;
 
 @end

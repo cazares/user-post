@@ -14,6 +14,9 @@
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import <Mantle/Mantle.h>
 
+static NSString *kUsersUrl = @"users";
+static NSString *kPostsUrl = @"posts";
+
 @interface USPAPIClient ()
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *operationManager;
@@ -44,10 +47,25 @@
     }];
 }
 
+- (void)POST:(NSString *)url params:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    [self.operationManager POST:[NSString stringWithFormat:@"%@/%@", kUSPBaseUrl, url] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(operation, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(operation, error);
+    }];
+}
+
+- (void)PUT:(NSString *)url params:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    [self.operationManager PUT:[NSString stringWithFormat:@"%@/%@", kUSPBaseUrl, url] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(operation, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(operation, error);
+    }];
+}
+
 - (void)getUsersWithSuccess:(USPGenericBlock)success
                     failure:(USPErrorBlock)failure {
-    [self GET:@"users" params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", responseObject);
+    [self GET:kUsersUrl params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *users = [MTLJSONAdapter modelsOfClass:[User class] fromJSONArray:responseObject error:nil];
         success(users);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -60,12 +78,37 @@
                     failure:(USPErrorBlock)failure {
     NSDictionary *params = @{ @"userId": @(userId) };
     
-    [self GET:@"posts" params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self GET:kPostsUrl params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *posts = [MTLJSONAdapter modelsOfClass:[Post class] fromJSONArray:responseObject error:nil];
         success(posts);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
+}
+
+- (void)modifyPost:(Post)post
+    modifyPostType:(ModifyPostType)modifyPostType
+           success:(USPEmptyBlock)success
+           failure:(USPErrorBlock)failure {
+    NSDictionary *params = @{ @"title": post.title,
+                              @"body": post.body };
+    
+    switch(modifyPostType) {
+        case CreateNew:
+            [self POST:kPostsUrl params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                success();
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                failure(error);
+            }];
+            break;
+            
+        case Edit:
+            break;
+            
+        case Delete:
+            break;
+    }
+    
 }
 
 @end
