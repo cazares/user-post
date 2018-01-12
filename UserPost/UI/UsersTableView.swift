@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserPostTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
+class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     let cellIdentifier = "cellIdentifier"
     let userRowHeight = CGFloat(120)
     

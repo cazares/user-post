@@ -9,7 +9,7 @@
 import UIKit
 import SwiftSpinner
 
-class UserPostViewController: UIViewController {
+class UsersViewController: UIViewController {
 
     let viewTitle = "Users"
     let searchWidth = CGFloat(300)

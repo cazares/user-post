@@ -9,17 +9,19 @@
 /* Begin PBXBuildFile section */
 		0481AB51C20261645E992D0B /* Pods_UserPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B621295D4B043E7C378C50 /* Pods_UserPost.framework */; };
 		7343E8E72007FC7E00066741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E8E62007FC7E00066741 /* AppDelegate.swift */; };
-		7343E8E92007FC7E00066741 /* UserPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E8E82007FC7E00066741 /* UserPostViewController.swift */; };
+		7343E8E92007FC7E00066741 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E8E82007FC7E00066741 /* UsersViewController.swift */; };
 		7343E8EE2007FC7E00066741 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7343E8ED2007FC7E00066741 /* Assets.xcassets */; };
 		7343E8F12007FC7E00066741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7343E8EF2007FC7E00066741 /* LaunchScreen.storyboard */; };
 		7343E8FC2007FC7E00066741 /* UserPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E8FB2007FC7E00066741 /* UserPostTests.swift */; };
 		7343E9072007FC7E00066741 /* UserPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E9062007FC7E00066741 /* UserPostUITests.swift */; };
 		7343E919200801B800066741 /* USPAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7343E918200801B800066741 /* USPAPIClient.m */; };
 		7343E91B2008068100066741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7343E91A2008068100066741 /* Main.storyboard */; };
-		7343E91E2008078C00066741 /* UserPostTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E91D2008078C00066741 /* UserPostTableView.swift */; };
+		7343E91E2008078C00066741 /* UsersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E91D2008078C00066741 /* UsersTableView.swift */; };
 		7343E920200807B700066741 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E91F200807B700066741 /* UserTableViewCell.swift */; };
 		735F7EF420080A7C00B6668A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF320080A7C00B6668A /* User.swift */; };
 		735F7EF620080AB600B6668A /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF520080AB600B6668A /* Address.swift */; };
+		735F7EF82008330C00B6668A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF72008330C00B6668A /* PostViewController.swift */; };
+		735F7EFA2008332600B6668A /* PostTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF92008332600B6668A /* PostTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +46,7 @@
 		72B621295D4B043E7C378C50 /* Pods_UserPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UserPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7343E8E32007FC7E00066741 /* UserPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7343E8E62007FC7E00066741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7343E8E82007FC7E00066741 /* UserPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostViewController.swift; sourceTree = "<group>"; };
+		7343E8E82007FC7E00066741 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		7343E8ED2007FC7E00066741 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7343E8F02007FC7E00066741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7343E8F22007FC7E00066741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,10 +60,12 @@
 		7343E917200801B800066741 /* USPAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USPAPIClient.h; sourceTree = "<group>"; };
 		7343E918200801B800066741 /* USPAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USPAPIClient.m; sourceTree = "<group>"; };
 		7343E91A2008068100066741 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		7343E91D2008078C00066741 /* UserPostTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostTableView.swift; sourceTree = "<group>"; };
+		7343E91D2008078C00066741 /* UsersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableView.swift; sourceTree = "<group>"; };
 		7343E91F200807B700066741 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		735F7EF320080A7C00B6668A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		735F7EF520080AB600B6668A /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		735F7EF72008330C00B6668A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		735F7EF92008332600B6668A /* PostTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableView.swift; sourceTree = "<group>"; };
 		D3463C5243B127995268CC6D /* Pods-UserPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserPost/Pods-UserPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +163,8 @@
 		7343E9152008003400066741 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7343E8E82007FC7E00066741 /* UserPostViewController.swift */,
+				7343E8E82007FC7E00066741 /* UsersViewController.swift */,
+				735F7EF72008330C00B6668A /* PostViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,8 +181,9 @@
 		7343E91C2008076E00066741 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7343E91D2008078C00066741 /* UserPostTableView.swift */,
+				7343E91D2008078C00066741 /* UsersTableView.swift */,
 				7343E91F200807B700066741 /* UserTableViewCell.swift */,
+				735F7EF92008332600B6668A /* PostTableView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -399,10 +405,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				735F7EF82008330C00B6668A /* PostViewController.swift in Sources */,
 				7343E919200801B800066741 /* USPAPIClient.m in Sources */,
-				7343E8E92007FC7E00066741 /* UserPostViewController.swift in Sources */,
+				7343E8E92007FC7E00066741 /* UsersViewController.swift in Sources */,
 				735F7EF420080A7C00B6668A /* User.swift in Sources */,
-				7343E91E2008078C00066741 /* UserPostTableView.swift in Sources */,
+				7343E91E2008078C00066741 /* UsersTableView.swift in Sources */,
+				735F7EFA2008332600B6668A /* PostTableView.swift in Sources */,
 				7343E8E72007FC7E00066741 /* AppDelegate.swift in Sources */,
 				7343E920200807B700066741 /* UserTableViewCell.swift in Sources */,
 				735F7EF620080AB600B6668A /* Address.swift in Sources */,
