@@ -119,7 +119,9 @@ class EditPostViewController: UIViewController {
         
         let newTitle = postTitleTextField.text == nil ? emptyString : postTitleTextField.text!
         let newBody = postBodyTextView.text == nil ? emptyString : postBodyTextView.text!
-        let newPost = Post(title: newTitle, body: newBody)
+        let newPost = Post()!
+        newPost.title = newTitle
+        newPost.body = newBody
         
         USPAPIClient.shared().modifyPost(with: newPost, modifyPostType: ModifyPostType.CreateNew, success: onSuccess, failure: onFailure)
     }
