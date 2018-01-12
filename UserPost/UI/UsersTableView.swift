@@ -12,7 +12,7 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     let cellIdentifier = "usersTableViewCellIdentifier"
     let userRowHeight = CGFloat(120)
     
-    var postViewController = PostViewController()
+    var postViewController = PostsViewController()
     weak var usersViewController: UsersViewController!
     
     var users = [User]() {
@@ -29,8 +29,6 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         dataSource = self
         delegate = self
         backgroundColor = backgroundColor
-        
-        postNavController = UINavigationController(rootViewController: postViewController)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

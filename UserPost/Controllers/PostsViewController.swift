@@ -11,7 +11,12 @@ import SwiftSpinner
 
 class PostsViewController: UIViewController {
 
-    var postTable = PostTableView()
+    var userId = 0 {
+        didSet {
+            getPosts()
+        }
+    }
+    var postTable = PostsTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +27,19 @@ class PostsViewController: UIViewController {
         postTable.lhs_fillWidthOfSuperview()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    private func getPosts() {
         SwiftSpinner.show("Loading posts")
         
-        let onSuccess: USPGenericBlock {
+        let onSuccess: USPGenericBlock = {
             posts in
-            
+            SwiftSpinner.hide()
+            self.postTable.posts = posts as! [Post]
+        }
+        let onFailure: USPErrorBlock = {
+            print($0)
+            SwiftSpinner.hide()
         }
         
-        USPAPIClient.shared().getPostsWithUserId(post?.userId, success: <#T##USPGenericBlock!##USPGenericBlock!##(Any?) -> Void#>, failure: <#T##USPErrorBlock!##USPErrorBlock!##(Error?) -> Void#>)
+        USPAPIClient.shared().getPostsWithUserId(userId, success: onSuccess, failure: onFailure)
     }
 }
