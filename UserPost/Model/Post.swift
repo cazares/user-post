@@ -9,7 +9,7 @@
 import UIKit
 import Mantle
 
-class Post: MTLModel {
+class Post: MTLModel, MTLJSONSerializing {
     var body = emptyString
     var userId = 0
     var title = emptyString
