@@ -10,6 +10,7 @@ import UIKit
 import SwiftSpinner
 
 class PostsViewController: UIViewController {
+    let loadingPosts = "Loading Posts"
 
     var user = User()! {
         didSet {
@@ -35,7 +36,7 @@ class PostsViewController: UIViewController {
     }
     
     private func getPosts() {
-        SwiftSpinner.show("Loading posts")
+        SwiftSpinner.show(loadingPosts)
         
         let onSuccess: USPGenericBlock = {
             posts in

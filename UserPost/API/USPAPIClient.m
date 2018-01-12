@@ -86,7 +86,7 @@ static NSString *kPostsUrl = @"posts";
     }];
 }
 
-- (void)modifyPost:(Post)post
+- (void)modifyPost:(Post *)post
     modifyPostType:(ModifyPostType)modifyPostType
            success:(USPEmptyBlock)success
            failure:(USPErrorBlock)failure {

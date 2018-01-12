@@ -13,6 +13,7 @@ class UsersViewController: UIViewController {
 
     let viewTitle = "Users"
     let userTable = UsersTableView()
+    let gettingUsers = "Getting Users"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class UsersViewController: UIViewController {
             print($0)
             SwiftSpinner.hide()
         }
-        SwiftSpinner.show("Getting users")
+        SwiftSpinner.show(gettingUsers)
         USPAPIClient.shared().getUsersWithSuccess(onSuccess, failure: onFailure)
     }
 }

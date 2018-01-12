@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftSpinner
 
 class EditPostViewController: UIViewController {
     let cancelTitle = "Cancel"
@@ -19,6 +20,7 @@ class EditPostViewController: UIViewController {
     let bodyText = "Body:"
     let labelHeight = 40.0
     let bodyCornerRadius = CGFloat(5.0)
+    let savingPost = "Saving Post"
     
     var post = Post() {
         didSet {
@@ -102,6 +104,23 @@ class EditPostViewController: UIViewController {
     }
     
     public func savePost() {
-        dismissViewController()
+        SwiftSpinner.show(savingPost)
+        
+        let onSuccess: USPEmptyBlock = {
+            _ in
+            SwiftSpinner.hide()
+            dismissViewController()
+        }
+        
+        let onFailure: USPErrorBlock = {
+            print($0)
+            SwiftSpinner.hide()
+        }
+        
+        let newTitle = postTitleTextField.text == nil ? emptyString : postTitleTextField.text!
+        let newBody = postBodyTextView.text == nil ? emptyString : postBodyTextView.text!
+        let newPost = Post(title: newTitle, body: newBody)
+        
+        USPAPIClient.shared().modifyPost(with: newPost, modifyPostType: ModifyPostType.CreateNew, success: onSuccess, failure: onFailure)
     }
 }
