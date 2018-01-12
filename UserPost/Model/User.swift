@@ -10,12 +10,14 @@ import UIKit
 import Mantle
 
 class User: MTLModel, MTLJSONSerializing {
+    var id = 0
     var name = emptyString
     var address = Address()
     
     public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [ "name": "name",
-                 "address": "address" ]
+                 "address": "address",
+                 "id": "id" ]
     }
     
     public static func addressJSONTransformer() -> ValueTransformer {

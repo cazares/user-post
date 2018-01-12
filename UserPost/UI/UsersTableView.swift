@@ -51,6 +51,8 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let user = users[indexPath.row]
+        postViewController.user = user
         usersViewController.navigationController?.pushViewController(postViewController, animated: true)
     }
     

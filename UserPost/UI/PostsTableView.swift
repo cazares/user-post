@@ -12,7 +12,11 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     let cellIdentifier = "postTableViewCellIdentifier"
     let postRowHeight = CGFloat(100.0)
     
-    var posts = [Post]()
+    var posts = [Post]() {
+        didSet {
+            reloadData()
+        }
+    }
     
     init() {
         super.init(frame: .zero, style: .grouped)

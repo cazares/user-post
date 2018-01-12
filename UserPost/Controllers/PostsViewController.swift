@@ -11,11 +11,13 @@ import SwiftSpinner
 
 class PostsViewController: UIViewController {
 
-    var userId = 0 {
+    var user = User()! {
         didSet {
+            setTitleFromUser()
             getPosts()
         }
     }
+    
     var postTable = PostsTableView()
     
     override func viewDidLoad() {
@@ -25,6 +27,10 @@ class PostsViewController: UIViewController {
         
         postTable.lhs_fillHeightOfSuperview()
         postTable.lhs_fillWidthOfSuperview()
+    }
+    
+    private func setTitleFromUser() {
+        title = "Posts for: \(user.name)"
     }
     
     private func getPosts() {
@@ -40,6 +46,6 @@ class PostsViewController: UIViewController {
             SwiftSpinner.hide()
         }
         
-        USPAPIClient.shared().getPostsWithUserId(userId, success: onSuccess, failure: onFailure)
+        USPAPIClient.shared().getPostsWithUserId(user.id, success: onSuccess, failure: onFailure)
     }
 }
