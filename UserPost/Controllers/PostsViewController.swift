@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwiftSpinner
 
-class PostViewController: UIViewController {
+class PostsViewController: UIViewController {
 
     var postTable = PostTableView()
     
@@ -23,5 +24,14 @@ class PostViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        SwiftSpinner.show("Loading posts")
+        
+        let onSuccess: USPGenericBlock {
+            posts in
+            
+        }
+        
+        USPAPIClient.shared().getPostsWithUserId(post?.userId, success: <#T##USPGenericBlock!##USPGenericBlock!##(Any?) -> Void#>, failure: <#T##USPErrorBlock!##USPErrorBlock!##(Error?) -> Void#>)
     }
 }

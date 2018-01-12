@@ -55,4 +55,17 @@
     }];
 }
 
+- (void)getPostsWithUserId:(NSInteger)userId
+                   success:(USPGenericBlock)success
+                    failure:(USPErrorBlock)failure {
+    NSDictionary *params = @{ @"userId": @(userId) };
+    
+    [self GET:@"posts" params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *posts = [MTLJSONAdapter modelsOfClass:[Post class] fromJSONArray:responseObject error:nil];
+        success(posts);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
 @end

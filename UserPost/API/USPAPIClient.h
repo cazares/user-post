@@ -21,4 +21,8 @@ typedef void (^USPErrorBlock)(NSError *error);
 - (void)getUsersWithSuccess:(USPGenericBlock)success
                     failure:(USPErrorBlock)failure;
 
+- (void)getPostsWithUserId:(NSInteger)userId
+                   success:(USPGenericBlock)success
+                   failure:(USPErrorBlock)failure;
+
 @end

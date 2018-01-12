@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     let cellIdentifier = "postTableViewCellIdentifier"
     let postRowHeight = CGFloat(100.0)
     

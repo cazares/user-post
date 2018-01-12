@@ -20,8 +20,8 @@
 		7343E920200807B700066741 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E91F200807B700066741 /* UserTableViewCell.swift */; };
 		735F7EF420080A7C00B6668A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF320080A7C00B6668A /* User.swift */; };
 		735F7EF620080AB600B6668A /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF520080AB600B6668A /* Address.swift */; };
-		735F7EF82008330C00B6668A /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF72008330C00B6668A /* PostViewController.swift */; };
-		735F7EFA2008332600B6668A /* PostTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF92008332600B6668A /* PostTableView.swift */; };
+		735F7EF82008330C00B6668A /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF72008330C00B6668A /* PostsViewController.swift */; };
+		735F7EFA2008332600B6668A /* PostsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EF92008332600B6668A /* PostsTableView.swift */; };
 		735F7EFC2008371400B6668A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EFB2008371400B6668A /* Post.swift */; };
 		735F7EFF200837BE00B6668A /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7EFE200837BE00B6668A /* BaseTableViewCell.swift */; };
 		735F7F012008386600B6668A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F002008386600B6668A /* PostTableViewCell.swift */; };
@@ -67,8 +67,8 @@
 		7343E91F200807B700066741 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		735F7EF320080A7C00B6668A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		735F7EF520080AB600B6668A /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		735F7EF72008330C00B6668A /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		735F7EF92008332600B6668A /* PostTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableView.swift; sourceTree = "<group>"; };
+		735F7EF72008330C00B6668A /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		735F7EF92008332600B6668A /* PostsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsTableView.swift; sourceTree = "<group>"; };
 		735F7EFB2008371400B6668A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		735F7EFE200837BE00B6668A /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		735F7F002008386600B6668A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				7343E8E82007FC7E00066741 /* UsersViewController.swift */,
-				735F7EF72008330C00B6668A /* PostViewController.swift */,
+				735F7EF72008330C00B6668A /* PostsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -190,7 +190,7 @@
 			children = (
 				7343E91D2008078C00066741 /* UsersTableView.swift */,
 				7343E91F200807B700066741 /* UserTableViewCell.swift */,
-				735F7EF92008332600B6668A /* PostTableView.swift */,
+				735F7EF92008332600B6668A /* PostsTableView.swift */,
 				735F7F002008386600B6668A /* PostTableViewCell.swift */,
 			);
 			path = UI;
@@ -422,13 +422,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				735F7EF82008330C00B6668A /* PostViewController.swift in Sources */,
+				735F7EF82008330C00B6668A /* PostsViewController.swift in Sources */,
 				7343E919200801B800066741 /* USPAPIClient.m in Sources */,
 				7343E8E92007FC7E00066741 /* UsersViewController.swift in Sources */,
 				735F7EF420080A7C00B6668A /* User.swift in Sources */,
 				7343E91E2008078C00066741 /* UsersTableView.swift in Sources */,
 				735F7EFF200837BE00B6668A /* BaseTableViewCell.swift in Sources */,
-				735F7EFA2008332600B6668A /* PostTableView.swift in Sources */,
+				735F7EFA2008332600B6668A /* PostsTableView.swift in Sources */,
 				7343E8E72007FC7E00066741 /* AppDelegate.swift in Sources */,
 				7343E920200807B700066741 /* UserTableViewCell.swift in Sources */,
 				735F7EF620080AB600B6668A /* Address.swift in Sources */,
