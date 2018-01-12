@@ -11,6 +11,9 @@ import SwiftSpinner
 
 class PostsViewController: UIViewController {
     let loadingPosts = "Loading Posts"
+    let sortTitle = "Sort"
+    let ascendingTitle = "Sort Ascending"
+    let descendingTitle = "Sort Descending"
 
     var user = User()! {
         didSet {
@@ -24,9 +27,19 @@ class PostsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupViewController()
+        setupViews()
+    }
+    
+    private func setupViewController() {
         view.backgroundColor = bgColor
         view.addSubview(postTable)
         
+        let sortButton = UIBarButtonItem(title: sortTitle, style: .done, target: self, action: #selector(sortButtonPressed))
+        navigationItem.rightBarButtonItem = sortButton
+    }
+    
+    private func setupViews() {
         postTable.lhs_fillHeightOfSuperview()
         postTable.lhs_fillWidthOfSuperview()
         
@@ -35,6 +48,29 @@ class PostsViewController: UIViewController {
     
     private func setTitleFromUser() {
         title = "Posts for: \(user.name)"
+    }
+    
+    public func sortButtonPressed() {
+        let actionSheet = UIAlertController(title: user.name, message: nil, preferredStyle: .actionSheet)
+        let ascendingAction = UIAlertAction(title: ascendingTitle, style: .default, handler: { _ in
+            self.sortPostsWithAscending(true)
+        })
+        actionSheet.addAction(ascendingAction)
+        
+        let descendingAction = UIAlertAction(title: descendingTitle, style: .default, handler: { _ in
+            self.sortPostsWithAscending(false)
+        })
+        actionSheet.addAction(descendingAction)
+        
+        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler:nil)
+        actionSheet.addAction(cancelAction)
+        
+        navigationController?.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    private func sortPostsWithAscending(_ ascending: Bool) {
+        self.postTable.posts.sort { ascending ? $0.title < $1.title : $0.title > $1.title }
+        self.postTable.reloadData()
     }
     
     private func getPosts() {

@@ -73,6 +73,9 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         })
         actionSheet.addAction(createNewAction)
         
+        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler:nil)
+        actionSheet.addAction(cancelAction)
+        
         usersViewController.navigationController?.present(actionSheet, animated: true, completion: nil)
     }
     
