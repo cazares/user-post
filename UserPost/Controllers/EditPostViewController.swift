@@ -17,6 +17,8 @@ class EditPostViewController: UIViewController {
     let labelFontSize = 16.0
     let titleText = "Title:"
     let bodyText = "Body:"
+    let labelHeight = 40.0
+    let bodyCornerRadius = CGFloat(5.0)
     
     var post = Post() {
         didSet {
@@ -38,8 +40,15 @@ class EditPostViewController: UIViewController {
         setupViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // no idea why this isn't working in setupViewController/viewDidLoad
+        view.backgroundColor = .red
+    }
+    
     private func setupViewController() {
-        view.backgroundColor = backgroundColor
+        extendedLayoutIncludesOpaqueBars = false
+        edgesForExtendedLayout = []
         
         let cancelButton = UIBarButtonItem(title: cancelTitle, style: .plain, target: self, action: #selector(dismissViewController))
         navigationItem.leftBarButtonItem = cancelButton
@@ -51,10 +60,16 @@ class EditPostViewController: UIViewController {
     private func setupViews() {
         postTitleLabel = BaseLabel(fontSize: labelFontSize, text: titleText, view: view)
         postTitleTextField.translatesAutoresizingMaskIntoConstraints = false
+        postTitleTextField.borderStyle = .roundedRect
+        postTitleTextField.tintColor = .black
+        postTitleTextField.returnKeyType = .next
+        postTitleTextField.backgroundColor = .white
+        postTitleTextField.clipsToBounds = true
         view.addSubview(postTitleTextField)
         
         postBodyLabel = BaseLabel(fontSize: labelFontSize, text: bodyText, view: view)
         postBodyTextView.translatesAutoresizingMaskIntoConstraints = false
+        postBodyTextView.layer.cornerRadius = bodyCornerRadius
         view.addSubview(postBodyTextView)
         
         let views = [ "titleLabel": postTitleLabel,
@@ -62,9 +77,10 @@ class EditPostViewController: UIViewController {
                       "bodyLabel": postBodyLabel,
                       "bodyTextView": postBodyTextView ] as [String: AnyHashable]
         let metrics = [ "pad": padding,
-                        "textViewHeight": textViewHeight ] as [String: AnyHashable]
+                        "textViewHeight": textViewHeight,
+                        "labelHeight": labelHeight ] as [String: AnyHashable]
         
-        view.lhs_addConstraints("V:|-(pad)-[titleLabel]-[titleTextField]-[bodyLabel]-[bodyTextView(textViewHeight)]", metrics: metrics, views: views)
+        view.lhs_addConstraints("V:|-(pad)-[titleLabel(labelHeight)]-[titleTextField(labelHeight)]-[bodyLabel(labelHeight)]-[bodyTextView]-(pad)-|", metrics: metrics, views: views)
         
         setHorizontalConstraintsForView(postTitleLabel, metrics: metrics)
         setHorizontalConstraintsForView(postTitleTextField, metrics: metrics)
