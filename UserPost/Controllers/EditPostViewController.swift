@@ -22,7 +22,7 @@ class EditPostViewController: UIViewController {
     let bodyCornerRadius = CGFloat(5.0)
     let savingPost = "Saving Post"
     
-    var post = Post() {
+    var post: Post? {
         didSet {
             resetFields()
             resetTitle()
@@ -109,7 +109,7 @@ class EditPostViewController: UIViewController {
         let onSuccess: USPEmptyBlock = {
             _ in
             SwiftSpinner.hide()
-            dismissViewController()
+            self.dismissViewController()
         }
         
         let onFailure: USPErrorBlock = {

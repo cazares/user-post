@@ -86,29 +86,26 @@ static NSString *kPostsUrl = @"posts";
     }];
 }
 
-- (void)modifyPost:(Post *)post
-    modifyPostType:(ModifyPostType)modifyPostType
-           success:(USPEmptyBlock)success
-           failure:(USPErrorBlock)failure {
+- (void)modifyPostWithPost:(Post *)post
+            modifyPostType:(ModifyPostType)modifyPostType
+                   success:(USPEmptyBlock)success
+                   failure:(USPErrorBlock)failure {
     NSDictionary *params = @{ @"title": post.title,
                               @"body": post.body };
     
-    switch(modifyPostType) {
-        case CreateNew:
-            [self POST:kPostsUrl params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                success();
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                failure(error);
-            }];
-            break;
-            
-        case Edit:
-            break;
-            
-        case Delete:
-            break;
+    if (modifyPostType == CreateNew) {
+        [self POST:kPostsUrl params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            success();
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
     }
-    
+    else if (modifyPostType == Edit) {
+        
+    }
+    else {
+        // doing else instead of else if to avoid being locked into a spinner
+    }
 }
 
 @end
