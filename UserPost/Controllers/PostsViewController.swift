@@ -29,6 +29,8 @@ class PostsViewController: UIViewController {
         
         postTable.lhs_fillHeightOfSuperview()
         postTable.lhs_fillWidthOfSuperview()
+        
+        postTable.postsViewController = self
     }
     
     private func setTitleFromUser() {

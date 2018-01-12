@@ -34,6 +34,8 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         dataSource = self
         delegate = self
         backgroundColor = bgColor
+        
+        editPostNavController = UINavigationController(rootViewController: editPostViewController)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

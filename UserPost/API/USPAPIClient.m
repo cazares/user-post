@@ -63,6 +63,14 @@ static NSString *kPostsUrl = @"posts";
     }];
 }
 
+- (void)DELETE:(NSString *)url params:(NSDictionary *)parameters success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    [self.operationManager DELETE:[NSString stringWithFormat:@"%@/%@", kUSPBaseUrl, url] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(operation, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(operation, error);
+    }];
+}
+
 - (void)getUsersWithSuccess:(USPGenericBlock)success
                     failure:(USPErrorBlock)failure {
     [self GET:kUsersUrl params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -92,19 +100,32 @@ static NSString *kPostsUrl = @"posts";
                    failure:(USPErrorBlock)failure {
     NSDictionary *params = @{ @"title": post.title,
                               @"body": post.body };
+    NSString *url = kPostsUrl;
+    if (modifyPostType != CreateNew) {
+        url = [NSString stringWithFormat:@"%@/%ld", kPostsUrl, post.id];
+    }
     
     if (modifyPostType == CreateNew) {
-        [self POST:kPostsUrl params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self POST:url params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             success();
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
         }];
     }
     else if (modifyPostType == Edit) {
-        
+        [self PUT:url params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            success();
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
     }
     else {
         // doing else instead of else if to avoid being locked into a spinner
+        [self DELETE:url params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            success();
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
     }
 }
 
