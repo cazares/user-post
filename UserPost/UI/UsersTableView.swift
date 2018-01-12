@@ -15,6 +15,8 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     let createNewPostTitle = "Create New Post"
     
     var postViewController = PostsViewController()
+    var editPostViewController = EditPostViewController()
+    var editPostNavController: UINavigationController!
     weak var usersViewController: UsersViewController!
     
     var users = [User]() {
@@ -31,6 +33,8 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         dataSource = self
         delegate = self
         backgroundColor = backgroundColor
+        
+        editPostNavController = UINavigationController(rootViewController: editPostViewController)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +67,8 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         actionSheet.addAction(viewAction)
         
         let createNewAction = UIAlertAction(title: createNewPostTitle, style: .default, handler: { _ in
-            
+            self.editPostViewController.post = nil
+            self.usersViewController.navigationController?.present(self.editPostNavController, animated: true, completion: nil)
         })
         actionSheet.addAction(createNewAction)
         
