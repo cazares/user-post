@@ -14,7 +14,7 @@ class UsersViewController: UIViewController {
     let viewTitle = "Users"
     let searchWidth = CGFloat(300)
     let searchHeight = CGFloat(34)
-    let userTable = UserPostTableView()
+    let userTable = UsersTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

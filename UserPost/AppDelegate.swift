@@ -8,7 +8,7 @@
 
 import UIKit
 
-let topNavColor = .red
+let topNavColor: UIColor = .red
 let backgroundRGB = CGFloat(238)
 let backgroundColor = UIColor(red: backgroundRGB, green: backgroundRGB, blue: backgroundRGB, alpha: CGFloat(1.0))
 let emptyString = ""
@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.isStatusBarHidden = false
         application.statusBarStyle = .lightContent
         
-        let searchViewController = UserPostViewController()
-        let navController = UINavigationController(rootViewController: searchViewController)
+        let mainViewController = UsersViewController()
+        let navController = UINavigationController(rootViewController: mainViewController)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
         

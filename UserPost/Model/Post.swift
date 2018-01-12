@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Mantle
 
 class Post: MTLModel {
     var body = emptyString

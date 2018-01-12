@@ -9,7 +9,7 @@
 import UIKit
 
 class PostTableViewCell: BaseTableViewCell {
-    var post = Post()! {
+    var post: Post! {
         didSet {
             labelText = post.title
             detailText = post.body
