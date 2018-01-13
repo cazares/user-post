@@ -71,32 +71,6 @@ static NSString *kPostsUrl = @"posts";
     }];
 }
 
-/*- (void)getUsersWithSuccess:(USPGenericBlock)success
-                    failure:(USPErrorBlock)failure {
-    [self GET:kUsersUrl params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSError *error = nil;
-        NSLog(@"users: %@", responseObject);
-        NSArray *users = [MTLJSONAdapter modelsOfClass:[User class] fromJSONArray:responseObject error:&error];
-        NSLog(@"%@", error);
-        success(users);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
-    }];
-}*/
-
-- (void)getPostsWithUserId:(NSInteger)userId
-                   success:(USPGenericBlock)success
-                    failure:(USPErrorBlock)failure {
-    NSDictionary *params = @{ @"userId": @(userId) };
-    
-    [self GET:kPostsUrl params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSArray *posts = [MTLJSONAdapter modelsOfClass:[Post class] fromJSONArray:responseObject error:nil];
-        success(posts);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
-    }];
-}
-
 - (void)modifyPostWithPost:(Post *)post
             modifyPostType:(ModifyPostType)modifyPostType
                    success:(USPEmptyBlock)success

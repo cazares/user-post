@@ -27,13 +27,6 @@ typedef NS_ENUM(NSUInteger, ModifyPostType){
 
 + (instancetype)sharedClient;
 
-- (void)getUsersWithSuccess:(USPGenericBlock)success
-                    failure:(USPErrorBlock)failure;
-
-- (void)getPostsWithUserId:(NSInteger)userId
-                   success:(USPGenericBlock)success
-                   failure:(USPErrorBlock)failure;
-
 - (void)modifyPostWithPost:(Post *)post
             modifyPostType:(ModifyPostType)modifyPostType
                    success:(USPEmptyBlock)success
