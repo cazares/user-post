@@ -21,21 +21,15 @@ class SortListViewController: UIViewController {
     }
     
     public func sortButtonPressed() {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let ascendingAction = UIAlertAction(title: ascendingTitle, style: .default, handler: { _ in
+        let ascendingAction: USPEmptyBlock = { _ in
             self.sortPostsWithAscending(true)
-        })
-        actionSheet.addAction(ascendingAction)
+        }
         
-        let descendingAction = UIAlertAction(title: descendingTitle, style: .default, handler: { _ in
+        let descendingAction: USPEmptyBlock = { _ in
             self.sortPostsWithAscending(false)
-        })
-        actionSheet.addAction(descendingAction)
+        }
         
-        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler:nil)
-        actionSheet.addAction(cancelAction)
-        
-        navigationController?.present(actionSheet, animated: true, completion: nil)
+        UIAlertController.showDualActionWithCancelSheet(title: sortTitle, firstActionTitle: ascendingTitle, firstActionHandler: ascendingAction, secondActionTitle: descendingTitle, secondActionHandler: descendingAction, viewController: self)
     }
     
     internal func sortPostsWithAscending(_ ascending: Bool) { }

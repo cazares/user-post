@@ -23,7 +23,7 @@ extension UIAlertController {
     }
     
     static public func showDualActionWithCancelSheet(title: String, firstActionTitle: String, firstActionHandler: @escaping USPEmptyBlock, secondActionTitle: String, secondActionHandler: @escaping USPEmptyBlock, viewController: UIViewController) {
-        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         
         let firstAction = UIAlertAction(title: firstActionTitle, handler: firstActionHandler)
         actionSheet.addAction(firstAction)
