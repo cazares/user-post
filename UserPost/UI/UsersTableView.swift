@@ -59,24 +59,18 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         
         let user = users[indexPath.row]
         
-        let actionSheet = UIAlertController(title: user.name, message: nil, preferredStyle: .actionSheet)
-        let viewAction = UIAlertAction(title: viewPostsTitle, style: .default, handler: { _ in
+        let viewAction: USPEmptyBlock = { _ in
             self.postViewController.user = user
             self.usersViewController.navigationController?.pushViewController(self.postViewController, animated: true)
-        })
-        actionSheet.addAction(viewAction)
+        }
         
-        let createNewAction = UIAlertAction(title: createNewPostTitle, style: .default, handler: { _ in
+        let createNewAction: USPEmptyBlock = { _ in
             self.editPostViewController.post = nil
             self.editPostViewController.modifyType = ModifyPostType.CreateNew
             self.usersViewController.navigationController?.present(self.editPostNavController, animated: true, completion: nil)
-        })
-        actionSheet.addAction(createNewAction)
+        }
         
-        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler:nil)
-        actionSheet.addAction(cancelAction)
-        
-        usersViewController.navigationController?.present(actionSheet, animated: true, completion: nil)
+        UIAlertController.showDualActionWithCancelSheet(title: user.name, firstActionTitle: viewPostsTitle, firstActionHandler: viewAction, secondActionTitle: createNewPostTitle, secondActionHandler: createNewAction, viewController: usersViewController)
     }
     
     required init?(coder aDecoder: NSCoder) {
