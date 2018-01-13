@@ -12,7 +12,8 @@ class BaseTableViewCell: UITableViewCell {
 
     let usernameLabelFontSize = CGFloat(15.0)
     let addressLabelFontSize = CGFloat(12.0)
-    let numAddressLines = 4
+    let numAddressLines = 14
+    let labelHeight = CGFloat(40.0)
     
     private var label: UILabel!
     internal var labelText = emptyString {
@@ -40,14 +41,15 @@ class BaseTableViewCell: UITableViewCell {
         detailLabel = initLabel(fontSize: addressLabelFontSize)
         detailLabel.numberOfLines = numAddressLines
         
-        let metrics: [String: Any] = ["pad": padding]
+        let metrics: [String: Any] = ["pad": padding,   
+                                      "labelHeight": labelHeight]
         let views: [String: Any] = ["label": label,
                                     "detail": detailLabel]
         
         lhs_addConstraints("H:|-(pad)-[label]-(pad)-|", metrics: metrics, views: views)
         lhs_addConstraints("H:|-(pad)-[detail]-(pad)-|", metrics: metrics, views: views)
         
-        lhs_addConstraints("V:|-(pad)-[label]-[detail]-(pad)-|", metrics: metrics, views: views)
+        lhs_addConstraints("V:|-(pad)-[label(labelHeight)]-[detail]-(pad)-|", metrics: metrics, views: views)
     }
     
     private func initLabel(fontSize: CGFloat) -> UILabel {

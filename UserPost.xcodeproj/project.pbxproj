@@ -27,8 +27,8 @@
 		735F7F012008386600B6668A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F002008386600B6668A /* PostTableViewCell.swift */; };
 		735F7F032008422A00B6668A /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F022008422A00B6668A /* EditPostViewController.swift */; };
 		735F7F052008474300B6668A /* BaseLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F042008474300B6668A /* BaseLabel.swift */; };
-		735F7F072009A36D00B6668A /* Geographic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F062009A36D00B6668A /* Geographic.swift */; };
 		735F7F092009A3FD00B6668A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F082009A3FD00B6668A /* Company.swift */; };
+		735F7F0B2009A77E00B6668A /* Geographic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F0A2009A77E00B6668A /* Geographic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +78,8 @@
 		735F7F002008386600B6668A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		735F7F022008422A00B6668A /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		735F7F042008474300B6668A /* BaseLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLabel.swift; sourceTree = "<group>"; };
-		735F7F062009A36D00B6668A /* Geographic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geographic.swift; sourceTree = "<group>"; };
 		735F7F082009A3FD00B6668A /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		735F7F0A2009A77E00B6668A /* Geographic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geographic.swift; sourceTree = "<group>"; };
 		D3463C5243B127995268CC6D /* Pods-UserPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserPost/Pods-UserPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,8 +211,8 @@
 				735F7EF320080A7C00B6668A /* User.swift */,
 				735F7EF520080AB600B6668A /* Address.swift */,
 				735F7EFB2008371400B6668A /* Post.swift */,
-				735F7F062009A36D00B6668A /* Geographic.swift */,
 				735F7F082009A3FD00B6668A /* Company.swift */,
+				735F7F0A2009A77E00B6668A /* Geographic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,6 +438,7 @@
 				735F7F052008474300B6668A /* BaseLabel.swift in Sources */,
 				7343E919200801B800066741 /* USPAPIClient.m in Sources */,
 				7343E8E92007FC7E00066741 /* UsersViewController.swift in Sources */,
+				735F7F0B2009A77E00B6668A /* Geographic.swift in Sources */,
 				735F7EF420080A7C00B6668A /* User.swift in Sources */,
 				7343E91E2008078C00066741 /* UsersTableView.swift in Sources */,
 				735F7EFF200837BE00B6668A /* BaseTableViewCell.swift in Sources */,
@@ -448,7 +449,6 @@
 				735F7EF620080AB600B6668A /* Address.swift in Sources */,
 				735F7EFC2008371400B6668A /* Post.swift in Sources */,
 				735F7F012008386600B6668A /* PostTableViewCell.swift in Sources */,
-				735F7F072009A36D00B6668A /* Geographic.swift in Sources */,
 				735F7F092009A3FD00B6668A /* Company.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

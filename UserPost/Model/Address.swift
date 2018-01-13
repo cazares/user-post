@@ -15,19 +15,13 @@ class Address: MTLModel, MTLJSONSerializing {
     var city = emptyString
     var zipcode = emptyString
     var geographic = Geographic()!
-    var phone = emptyString
-    var website = emptyString
-    var company = Company()!
     
     public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [ "street": "street",
                  "suite": "suite",
                  "city": "city",
                  "zipcode": "zipcode",
-                 "geographic": "geo",
-                 "phone": "phone",
-                 "website": "website",
-                 "company": "company" ]
+                 "geographic": "geo" ]
     }
     
     public override func description() -> String! {
@@ -36,15 +30,6 @@ class Address: MTLModel, MTLJSONSerializing {
             Suite: \(suite)
             City: \(city)
             Zipcode: \(zipcode)
-            Geographic Location
-            \tlatitude: \(geographic.latitude)
-            \tlongitude: \(geographic.longitude)
-            Phone: \(phone)
-            Website: \(website)
-            Company
-            \tName: \(company.name)
-            \tCatch Phrase: \(company.catchPhrase)
-            \tTagline: \(company.bs)
         """
     }
 }

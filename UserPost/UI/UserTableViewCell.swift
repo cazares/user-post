@@ -12,7 +12,7 @@ class UserTableViewCell: BaseTableViewCell {
     var user = User()! {
         didSet {
             labelText = user.name
-            detailText = user.address!.description
+            detailText = user.description
         }
     }
 }

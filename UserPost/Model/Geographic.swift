@@ -1,5 +1,5 @@
 //
-//  Geo.swift
+//  Geographic.swift
 //  UserPost
 //
 //  Created by Miguel Cazares on 1/12/18.

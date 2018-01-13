@@ -19,4 +19,12 @@ class Company: MTLModel, MTLJSONSerializing {
                  "catchPhrase": "catchPhrase",
                  "bs": "bs"]
     }
+    
+    public override func description() -> String! {
+        return """
+            Name: \(name)
+            Catch Phrase: \(catchPhrase)
+            Tagline: \(bs)
+        """
+    }
 }

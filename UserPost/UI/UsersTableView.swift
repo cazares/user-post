@@ -10,7 +10,7 @@ import UIKit
 
 class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     let cellIdentifier = "usersTableViewCellIdentifier"
-    let userRowHeight = CGFloat(220)
+    let userRowHeight = CGFloat(300)
     let viewPostsTitle = "View Posts"
     let createNewPostTitle = "Create New Post"
     
