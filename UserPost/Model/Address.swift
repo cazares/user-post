@@ -24,12 +24,23 @@ class Address: MTLModel, MTLJSONSerializing {
                  "geographic": "geo" ]
     }
     
+    public static func geographicJSONTransformer() -> ValueTransformer {
+        return MTLValueTransformer(block: { (payload) in
+            do {
+                return try MTLJSONAdapter.model(of: Geographic.self, fromJSONDictionary: payload as! [AnyHashable: Any], error: ()) as! Geographic
+            } catch { }
+            return nil
+        })
+    }
+    
     public override func description() -> String! {
         return """
             Street: \(street)
             Suite: \(suite)
             City: \(city)
             Zipcode: \(zipcode)
+            Geographic Location
+            \(geographic.description)
         """
     }
 }

@@ -17,4 +17,11 @@ class Geographic: MTLModel, MTLJSONSerializing {
         return [ "latitude": "lat",
                  "longitude": "lng" ]
     }
+    
+    public override func description() -> String! {
+        return """
+        \tLatitude: \(latitude)
+        \tLongitude: \(longitude)
+        """
+    }
 }

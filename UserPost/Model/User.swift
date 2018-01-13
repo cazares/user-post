@@ -39,16 +39,25 @@ class User: MTLModel, MTLJSONSerializing {
         })
     }
     
+    public static func companyJSONTransformer() -> ValueTransformer {
+        return MTLValueTransformer(block: { (payload) in
+            do {
+                return try MTLJSONAdapter.model(of: Company.self, fromJSONDictionary: payload as! [AnyHashable: Any], error: ()) as! Company
+            } catch { }
+            return nil
+        })
+    }
+    
     public override func description() -> String! {
         return """
         Username: \(username)
         Email: \(email)
         Address
-        \t\(address.description)
+        \(address.description)
         Phone: \(phone)
         Website: \(website)
         Company
-        \t\(company.description)
+        \(company.description)
         """
     }
 }
