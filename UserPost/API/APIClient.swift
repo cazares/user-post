@@ -10,23 +10,28 @@ import UIKit
 import Alamofire
 
 class APIClient: SessionManager {
-    let baseUrl = "https://mobile-code-test.ifactornotifi.com/json"
-    let usersUrl = "users"
+    static let baseUrl = "https://mobile-code-test.ifactornotifi.com/json"
+    static let usersUrl = "users"
 
-    func getUsers(success: ([User]) -> (), failure: (NSError) -> ()) {
-        Alamofire.request("\(baseUrl)/\(usersUrl)", method: .get, parameters: nil, encoding: .utf8, headers: nil)
+    static func getUsers(success: @escaping ([User]) -> (), failure: @escaping (NSError) -> ()) {
+        Alamofire.request("\(baseUrl)/\(usersUrl)")
         .responseJSON { response in
-            switch response.result{
+            
+           // switch response.result {
                 
-            case .Success(let data) :
-                let json = JSON(data)
-                let users = try JSONDecoder().decode([User].self, from: json)
-                success(users)
+            //case .Success(let data):
+                do {
+                    let users = try JSONDecoder().decode([User].self, from: response.data!)
+                    success(users)
+                } catch {
+                    print("error parsing users from server")
+                    failure(NSError())
+                }
                 
-            case .Failure(let error):
-                print("Get users error: \(error)" )
-                failure(error)
-            }
+            //case .Failure(let error):
+            //    print("Get users error: \(error)" )
+            //    failure(error)
+            //}
         }
     }
 }

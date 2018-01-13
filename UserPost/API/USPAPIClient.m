@@ -71,7 +71,7 @@ static NSString *kPostsUrl = @"posts";
     }];
 }
 
-- (void)getUsersWithSuccess:(USPGenericBlock)success
+/*- (void)getUsersWithSuccess:(USPGenericBlock)success
                     failure:(USPErrorBlock)failure {
     [self GET:kUsersUrl params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *error = nil;
@@ -82,7 +82,7 @@ static NSString *kPostsUrl = @"posts";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
-}
+}*/
 
 - (void)getPostsWithUserId:(NSInteger)userId
                    success:(USPGenericBlock)success
