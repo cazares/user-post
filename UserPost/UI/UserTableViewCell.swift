@@ -9,7 +9,7 @@
 import UIKit
 
 class UserTableViewCell: BaseTableViewCell {
-    var user = User()! {
+    var user: User! {
         didSet {
             labelText = user.name
             detailText = user.description

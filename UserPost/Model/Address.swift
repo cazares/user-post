@@ -62,7 +62,7 @@ struct Address: Decodable {
         self.suite = suite
         self.city = city
         self.zipcode = zipcode
-        self.geographic
+        self.geographic = geographic
     }
     
     init(from decoder: Decoder) throws {

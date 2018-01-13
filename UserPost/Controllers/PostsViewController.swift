@@ -12,7 +12,7 @@ import SwiftSpinner
 class PostsViewController: SortListViewController {
     let loadingPosts = "Loading Posts"
 
-    var user = User()! {
+    var user: User! {
         didSet {
             setTitleFromUser()
             getPosts()
