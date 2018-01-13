@@ -20,12 +20,13 @@ class SortListViewController: UIViewController {
         navigationItem.rightBarButtonItem = sortButton
     }
     
+    @objc
     public func sortButtonPressed() {
-        let ascendingAction: USPEmptyBlock = { _ in
+        let ascendingAction: USPEmptyBlock = {
             self.sortPostsWithAscending(true)
         }
         
-        let descendingAction: USPEmptyBlock = { _ in
+        let descendingAction: USPEmptyBlock = { 
             self.sortPostsWithAscending(false)
         }
         
