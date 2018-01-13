@@ -34,12 +34,19 @@ struct Post: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: PostKeys.self)
+        var body = emptyString
+        var userId = 0
+        var title = emptyString
+        var id = 0
         
-        let body = try container.decode(String.self, forKey: .body)
-        let userId = try container.decode(Int.self, forKey: .userId)
-        let title = try container.decode(String.self, forKey: .title)
-        let id = try container.decode(Int.self, forKey: .id)
-        
+        do {
+            body = try container.decode(String.self, forKey: .body)
+            userId = try container.decode(Int.self, forKey: .userId)
+            title = try container.decode(String.self, forKey: .title)
+            id = try container.decode(Int.self, forKey: .id)
+        } catch (let error) {
+            print(error)
+        }
         self.init(body: body, userId: userId, title: title, id: id)
     }
 }
