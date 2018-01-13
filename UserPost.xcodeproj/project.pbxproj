@@ -660,7 +660,7 @@
 				DEVELOPMENT_TEAM = 7QRW68DD5X;
 				INFOPLIST_FILE = UserPost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-QRW68DD5X.cazares.userPost";
+				PRODUCT_BUNDLE_IDENTIFIER = cazares.userPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mcazares/src/user-post/UserPost/UserPost-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -677,7 +677,7 @@
 				DEVELOPMENT_TEAM = 7QRW68DD5X;
 				INFOPLIST_FILE = UserPost/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-QRW68DD5X.cazares.userPost";
+				PRODUCT_BUNDLE_IDENTIFIER = cazares.userPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mcazares/src/user-post/UserPost/UserPost-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
