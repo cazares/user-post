@@ -80,15 +80,17 @@ class APIClient: SessionManager {
             
         case .Edit:
             httpMethod = .put
+            url = "\(url)/\(post.id)"
             
         case .Delete:
             httpMethod = .delete
+            url = "\(url)/\(post.id)"
         }
         
         let params = [ "title": post.title,
                        "body": post.body ]
         
-        Alamofire.request("\(baseUrl)/\(url)", method: httpMethod, parameters: params, encoding: .utf8, headers: nil)
+        Alamofire.request("\(baseUrl)/\(url)", method: httpMethod, parameters: params, encoding: JSONEncoding.default, headers: [:])
             .responseJSON { response in
                 APIClient.handleModifyPost(response: response, success: success, failure: failure)
         }
