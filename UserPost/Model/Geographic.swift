@@ -42,10 +42,15 @@ struct Geographic: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: GeographicKeys.self)
+        var latitude = 0.0
+        var longitude = 0.0
         
-        let latitude: Double = try container.decode(Double.self, forKey: .latitude)
-        let longitude: Double = try container.decode(Double.self, forKey: .longitude)
-        
+        do {
+            latitude = try container.decode(Double.self, forKey: .latitude)
+            longitude = try container.decode(Double.self, forKey: .longitude)
+        } catch (let error) {
+            print(error)
+        }
         self.init(latitude: latitude, longitude: longitude)
     }
     
