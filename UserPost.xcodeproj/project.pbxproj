@@ -74,7 +74,6 @@
 		7343E9022007FC7E00066741 /* UserPostUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserPostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7343E9062007FC7E00066741 /* UserPostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostUITests.swift; sourceTree = "<group>"; };
 		7343E9082007FC7E00066741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7343E9142007FD8200066741 /* UserPost-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UserPost-Bridging-Header.h"; sourceTree = "<group>"; };
 		7343E91A2008068100066741 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7343E91D2008078C00066741 /* UsersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableView.swift; sourceTree = "<group>"; };
 		7343E91F200807B700066741 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -174,7 +173,6 @@
 				7343E8ED2007FC7E00066741 /* Assets.xcassets */,
 				7343E8EF2007FC7E00066741 /* LaunchScreen.storyboard */,
 				7343E8F22007FC7E00066741 /* Info.plist */,
-				7343E9142007FD8200066741 /* UserPost-Bridging-Header.h */,
 				7343E91A2008068100066741 /* Main.storyboard */,
 				735F7F22200A8E4E00B6668A /* Constants.swift */,
 			);
@@ -666,7 +664,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cazares.userPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mcazares/src/user-post/UserPost/UserPost-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -683,7 +680,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cazares.userPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mcazares/src/user-post/UserPost/UserPost-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
