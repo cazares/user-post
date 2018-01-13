@@ -15,12 +15,6 @@ typedef void (^USPEmptyBlock)();
 typedef void (^USPGenericBlock)(id JSON);
 typedef void (^USPErrorBlock)(NSError *error);
 
-typedef NS_ENUM(NSUInteger, ModifyPostType){
-    CreateNew = 0,
-    Edit = 1,
-    Delete = 2
-};
-
 @class Post;
 
 @interface USPAPIClient : AFHTTPSessionManager

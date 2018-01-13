@@ -12,6 +12,13 @@ import Alamofire
 enum ApiError: Error {
     case getUsersParseError
     case getPostsParseError
+    case modifyPostError
+}
+
+enum ModifyPostType {
+    CreateNew = 0,
+    Edit = 1,
+    Delete = 2
 }
 
 class APIClient: SessionManager {
@@ -57,5 +64,41 @@ class APIClient: SessionManager {
         } catch {
             failure(ApiError.getPostsParseError)
         }
+    }
+    
+    static func modifyPost(_ post: Post, modifyPostType: ModifyPostType, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+        Alamofire.request("\(baseUrl)/\(postsUrl)")
+            .responseJSON { response in
+                APIClient.handleModifyPost(response: response, success: success, failure: failure)
+        }
+        var url = postsUrl
+        var httpMethod: HTTPMethod = .post
+        
+        switch modifyPostType {
+        case .CreateNew:
+            httpMethod = .post
+            
+        case .Edit:
+            httpMethod = .put
+            
+        case .Delete:
+            httpMethod = .delete
+        }
+        
+        let params = [ "title": post.title,
+                       "body": post.body ]
+        
+        Alamofire.request("\(baseUrl)/\(url)", method: httpMethod, parameters: parameters, encoding: .utf8, headers: nil)
+            .responseJSON { response in
+                APIClient.handleModifyPost(response: response, success: success, failure: failure)
+        }
+    }
+    
+    private static func handleModifyPost(response: DataResponse<Any>, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
+        if response.result.isFailure {
+            failure(response.error!)
+            return
+        }
+        success()
     }
 }
