@@ -37,7 +37,8 @@ class UsersViewController: SortListViewController {
             self.userTable.users = users
         }
         let onFailure: (Error) -> () = {
-            print($0)
+            error in
+            print(error)
             SwiftSpinner.hide()
         }
         SwiftSpinner.show(gettingUsers)

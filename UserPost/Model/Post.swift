@@ -9,13 +9,20 @@
 import UIKit
 
 struct Post: Decodable {
-    let body: String
+    var body: String
     let userId: Int
-    let title: String
+    var title: String
     let id: Int
     
     enum PostKeys: String, CodingKey {
         case body, userId, title, id
+    }
+    
+    init() {
+        body = emptyString
+        userId = 0
+        title = emptyString
+        id = 0
     }
     
     init(body: String, userId: Int, title: String, id: Int) {
