@@ -9,27 +9,27 @@
 import UIKit
 
 struct Geographic: Decodable {
-    let latitude: Double
-    let longitude: Double
+    let latitude: String
+    let longitude: String
     
     enum GeographicKeys: String, CodingKey {
         case latitude = "lat"
         case longitude = "lng"
     }
     
-    init(latitude: Double, longitude: Double) {
+    init(latitude: String, longitude: String) {
         self.latitude = latitude
         self.longitude = longitude
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: GeographicKeys.self)
-        var latitude = 0.0
-        var longitude = 0.0
+        var latitude = emptyString
+        var longitude = emptyString
         
         do {
-            latitude = try container.decode(Double.self, forKey: .latitude)
-            longitude = try container.decode(Double.self, forKey: .longitude)
+            latitude = try container.decode(String.self, forKey: .latitude)
+            longitude = try container.decode(String.self, forKey: .longitude)
         } catch (let error) {
             print(error)
         }
