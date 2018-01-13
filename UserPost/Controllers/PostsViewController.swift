@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import LionheartExtensions
 
 class PostsViewController: SortListViewController {
     let loadingPosts = "Loading Posts"
@@ -34,8 +35,8 @@ class PostsViewController: SortListViewController {
     }
     
     private func setupViews() {
-        postTable.lhs_fillHeightOfSuperview()
-        postTable.lhs_fillWidthOfSuperview()
+        postTable.fillHeightOfSuperview()
+        postTable.fillWidthOfSuperview()
         
         postTable.postsViewController = self
     }
