@@ -9,7 +9,7 @@
 import Foundation
 
 extension UIAlertAction {
-    convenience init(title: String, handler: @escaping USPEmptyBlock) {
-        self.init(title: title, style: .default, handler: { _ in handler() })
+    convenience init(title: String, handler: @escaping (UIAlertAction) -> ()) {
+        self.init(title: title, style: .default, handler: handler)
     }
 }

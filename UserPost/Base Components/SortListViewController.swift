@@ -22,11 +22,11 @@ class SortListViewController: UIViewController {
     
     @objc
     func sortButtonPressed() {
-        let ascendingAction: USPEmptyBlock = {
+        let ascendingAction: (UIAlertAction) -> () = { _ in
             self.sortPostsWithAscending(true)
         }
         
-        let descendingAction: USPEmptyBlock = { 
+        let descendingAction: (UIAlertAction) -> () = { _ in
             self.sortPostsWithAscending(false)
         }
         

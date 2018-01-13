@@ -110,7 +110,7 @@ class EditPostViewController: UIViewController {
     func savePost() {
         SwiftSpinner.show(savingPost)
         
-        let onSuccess: () -> () = {
+        let onSuccess = {
             SwiftSpinner.hide()
             self.dismissViewController()
         }
