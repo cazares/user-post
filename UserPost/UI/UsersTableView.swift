@@ -59,12 +59,12 @@ class UsersTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         
         let user = users[indexPath.row]
         
-        let viewAction: USPEmptyBlock = { _ in
+        let viewAction: USPEmptyBlock = {
             self.postViewController.user = user
             self.usersViewController.navigationController?.pushViewController(self.postViewController, animated: true)
         }
         
-        let createNewAction: USPEmptyBlock = { _ in
+        let createNewAction: USPEmptyBlock = {
             self.editPostViewController.post = nil
             self.editPostViewController.modifyType = ModifyPostType.CreateNew
             self.usersViewController.navigationController?.present(self.editPostNavController, animated: true, completion: nil)
