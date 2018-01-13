@@ -6,7 +6,7 @@
 //  Copyright © 2018 Miguel Cazares. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIAlertAction {
     convenience init(title: String, handler: @escaping (UIAlertAction) -> ()) {
