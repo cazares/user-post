@@ -9,7 +9,7 @@
 import UIKit
 import SwiftSpinner
 
-class UsersViewController: UIViewController {
+class UsersViewController: SortListViewController {
 
     let viewTitle = "Users"
     let userTable = UsersTableView()
@@ -42,6 +42,15 @@ class UsersViewController: UIViewController {
         }
         SwiftSpinner.show(gettingUsers)
         USPAPIClient.shared().getUsersWithSuccess(onSuccess, failure: onFailure)
+    }
+    
+    internal override func sortPostsWithAscending(_ ascending: Bool) {
+        super.sortPostsWithAscending(ascending)
+        
+        self.userTable.users.sort {
+            ascending ? $0.name.localizedLowercase < $1.name.localizedLowercase : $0.name.localizedLowercase > $1.name.localizedLowercase
+        }
+        self.userTable.reloadData()
     }
 }
 
