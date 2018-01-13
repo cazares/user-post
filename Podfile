@@ -7,6 +7,7 @@ def shared_pods
 	pod 'SwiftSpinner'
 	pod 'Mantle', '~> 1.5.5'
 	pod 'AFNetworking', '~> 2.6.1'
+	pod 'Alamofire', '~> 4.5'
 	use_frameworks!
 end
 

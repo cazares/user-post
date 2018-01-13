@@ -14,13 +14,13 @@ class Company: MTLModel, MTLJSONSerializing {
     var catchPhrase = emptyString
     var bs = emptyString
     
-    public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [ "name": "name",
                  "catchPhrase": "catchPhrase",
                  "bs": "bs"]
     }
     
-    public override func description() -> String! {
+    override func description() -> String! {
         return """
             Name: \(name)
             Catch Phrase: \(catchPhrase)

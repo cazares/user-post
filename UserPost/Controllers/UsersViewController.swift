@@ -44,7 +44,7 @@ class UsersViewController: SortListViewController {
         USPAPIClient.shared().getUsersWithSuccess(onSuccess, failure: onFailure)
     }
     
-    internal override func sortPostsWithAscending(_ ascending: Bool) {
+    override func sortPostsWithAscending(_ ascending: Bool) {
         super.sortPostsWithAscending(ascending)
         
         self.userTable.users.sort {

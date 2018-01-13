@@ -101,15 +101,16 @@ class EditPostViewController: UIViewController {
         title = post == nil ? createNewTitle : editTitle
     }
     
-    public func dismissViewController() {
+    @objc
+    func dismissViewController() {
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    public func savePost() {
+    @objc
+    func savePost() {
         SwiftSpinner.show(savingPost)
         
         let onSuccess: USPEmptyBlock = {
-            _ in
             SwiftSpinner.hide()
             self.dismissViewController()
         }

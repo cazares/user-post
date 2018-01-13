@@ -21,7 +21,7 @@ class SortListViewController: UIViewController {
     }
     
     @objc
-    public func sortButtonPressed() {
+    func sortButtonPressed() {
         let ascendingAction: USPEmptyBlock = {
             self.sortPostsWithAscending(true)
         }
@@ -33,5 +33,5 @@ class SortListViewController: UIViewController {
         UIAlertController.showDualActionWithCancelSheet(title: sortTitle, firstActionTitle: ascendingTitle, firstActionHandler: ascendingAction, secondActionTitle: descendingTitle, secondActionHandler: descendingAction, viewController: self)
     }
     
-    internal func sortPostsWithAscending(_ ascending: Bool) { }
+    func sortPostsWithAscending(_ ascending: Bool) { }
 }

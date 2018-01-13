@@ -16,7 +16,7 @@ class BaseTableViewCell: UITableViewCell {
     let labelHeight = CGFloat(40.0)
     
     private var label: UILabel!
-    internal var labelText = emptyString {
+    var labelText = emptyString {
         willSet(newText) {
             label.text = newText
             textLabel?.text = newText
@@ -24,7 +24,7 @@ class BaseTableViewCell: UITableViewCell {
     }
     
     private var detailLabel: UILabel!
-    internal var detailText = emptyString {
+    var detailText = emptyString {
         willSet(newText) {
             detailLabel.text = newText
         }

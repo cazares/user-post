@@ -10,7 +10,7 @@ import Foundation
 
 extension UIAlertController {
     
-    static public func showAlert(title: String, message: String, viewController: UIViewController, onConfirm: @escaping USPEmptyBlock) {
+    static func showAlert(title: String, message: String, viewController: UIViewController, onConfirm: @escaping USPEmptyBlock) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
@@ -22,7 +22,7 @@ extension UIAlertController {
         viewController.present(alert, animated: true, completion: nil)
     }
     
-    static public func showDualActionWithCancelSheet(title: String, firstActionTitle: String, firstActionHandler: @escaping USPEmptyBlock, secondActionTitle: String, secondActionHandler: @escaping USPEmptyBlock, viewController: UIViewController) {
+    static func showDualActionWithCancelSheet(title: String, firstActionTitle: String, firstActionHandler: @escaping USPEmptyBlock, secondActionTitle: String, secondActionHandler: @escaping USPEmptyBlock, viewController: UIViewController) {
         let actionSheet = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         
         let firstAction = UIAlertAction(title: firstActionTitle, handler: firstActionHandler)

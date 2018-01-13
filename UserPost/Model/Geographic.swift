@@ -13,12 +13,12 @@ class Geographic: MTLModel, MTLJSONSerializing {
     var latitude = 0.0
     var longitude = 0.0
     
-    public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [ "latitude": "lat",
                  "longitude": "lng" ]
     }
     
-    public override func description() -> String! {
+    override func description() -> String! {
         return """
         \tLatitude: \(latitude)
         \tLongitude: \(longitude)

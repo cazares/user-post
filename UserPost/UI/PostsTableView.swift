@@ -67,7 +67,7 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
             self.postsViewController.navigationController?.present(self.editPostNavController, animated: true, completion: nil)
         }
         let deleteHandler: USPEmptyBlock = {
-            let onConfirm: USPEmptyBlock = { _ in
+            let onConfirm: USPEmptyBlock = { 
                 self.deletePost(post)
             }
             UIAlertController.showAlert(title: self.deleteTitle, message: self.deleteMessage, viewController: self.postsViewController, onConfirm: onConfirm)
