@@ -15,28 +15,10 @@ typedef void (^USPEmptyBlock)();
 typedef void (^USPGenericBlock)(id JSON);
 typedef void (^USPErrorBlock)(NSError *error);
 
-typedef NS_ENUM(NSUInteger, ModifyPostType){
-    CreateNew = 0,
-    Edit = 1,
-    Delete = 2
-};
-
 @class Post;
 
 @interface USPAPIClient : AFHTTPSessionManager
 
 + (instancetype)sharedClient;
-
-- (void)getUsersWithSuccess:(USPGenericBlock)success
-                    failure:(USPErrorBlock)failure;
-
-- (void)getPostsWithUserId:(NSInteger)userId
-                   success:(USPGenericBlock)success
-                   failure:(USPErrorBlock)failure;
-
-- (void)modifyPostWithPost:(Post *)post
-            modifyPostType:(ModifyPostType)modifyPostType
-                   success:(USPEmptyBlock)success
-                   failure:(USPErrorBlock)failure;
 
 @end

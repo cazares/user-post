@@ -31,17 +31,18 @@ class UsersViewController: SortListViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let onSuccess: USPGenericBlock = {
+        let onSuccess: ([User]) -> () = {
             users in
             SwiftSpinner.hide()
-            self.userTable.users = users as! [User]
+            self.userTable.users = users
         }
-        let onFailure: USPErrorBlock = {
-            print($0)
+        let onFailure: (Error) -> () = {
+            error in
+            print(error)
             SwiftSpinner.hide()
         }
         SwiftSpinner.show(gettingUsers)
-        USPAPIClient.shared().getUsersWithSuccess(onSuccess, failure: onFailure)
+        APIClient.getUsers(success: onSuccess, failure: onFailure)
     }
     
     override func sortPostsWithAscending(_ ascending: Bool) {

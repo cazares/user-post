@@ -12,7 +12,7 @@ import SwiftSpinner
 class PostsViewController: SortListViewController {
     let loadingPosts = "Loading Posts"
 
-    var user = User()! {
+    var user: User! {
         didSet {
             setTitleFromUser()
             getPosts()
@@ -56,16 +56,17 @@ class PostsViewController: SortListViewController {
     private func getPosts() {
         SwiftSpinner.show(loadingPosts)
         
-        let onSuccess: USPGenericBlock = {
+        let onSuccess: ([Post]) -> () = {
             posts in
             SwiftSpinner.hide()
-            self.postTable.posts = posts as! [Post]
+            self.postTable.posts = posts
         }
-        let onFailure: USPErrorBlock = {
-            print($0)
+        let onFailure: (Error) -> () = {
+            error in
+            print(error)
             SwiftSpinner.hide()
         }
         
-        USPAPIClient.shared().getPostsWithUserId(user.id, success: onSuccess, failure: onFailure)
+        APIClient.getPosts(userId: user.id, success: onSuccess, failure: onFailure)
     }
 }
