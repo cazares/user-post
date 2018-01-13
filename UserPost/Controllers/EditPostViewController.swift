@@ -110,13 +110,14 @@ class EditPostViewController: UIViewController {
     func savePost() {
         SwiftSpinner.show(savingPost)
         
-        let onSuccess: USPEmptyBlock = {
+        let onSuccess: () -> () = {
             SwiftSpinner.hide()
             self.dismissViewController()
         }
         
-        let onFailure: USPErrorBlock = {
-            print($0)
+        let onFailure: (Error) -> () = {
+            error in
+            print(error)
             SwiftSpinner.hide()
         }
         
@@ -128,6 +129,6 @@ class EditPostViewController: UIViewController {
         post!.title = newTitle
         post!.body = newBody
         
-        USPAPIClient.shared().modifyPost(with: post, modifyPostType: modifyType, success: onSuccess, failure: onFailure)
+        APIClient.modifyPost(post!, modifyPostType: modifyType, success: onSuccess, failure: onFailure)
     }
 }

@@ -16,9 +16,9 @@ enum ApiError: Error {
 }
 
 enum ModifyPostType {
-    case CreateNew = 0,
-    case Edit = 1,
-    case Delete = 2
+    case CreateNew
+    case Edit
+    case Delete
 }
 
 class APIClient: SessionManager {
@@ -88,7 +88,7 @@ class APIClient: SessionManager {
         let params = [ "title": post.title,
                        "body": post.body ]
         
-        Alamofire.request("\(baseUrl)/\(url)", method: httpMethod, parameters: parameters, encoding: .utf8, headers: nil)
+        Alamofire.request("\(baseUrl)/\(url)", method: httpMethod, parameters: params, encoding: .utf8, headers: nil)
             .responseJSON { response in
                 APIClient.handleModifyPost(response: response, success: success, failure: failure)
         }
