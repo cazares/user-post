@@ -36,7 +36,7 @@ class UsersViewController: SortListViewController {
             SwiftSpinner.hide()
             self.userTable.users = users
         }
-        let onFailure: (NSError) -> () = {
+        let onFailure: (Error) -> () = {
             print($0)
             SwiftSpinner.hide()
         }
