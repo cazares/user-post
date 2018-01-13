@@ -13,7 +13,7 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     let cellIdentifier = "postTableViewCellIdentifier"
     let postRowHeight = CGFloat(100.0)
     let deletingPost = "Deleting Post"
-    let editText = "Edit Post"
+    let editTitle = "Edit Post"
     let deleteTitle = "Delete Post"
     let deleteMessage = "Are you sure you want to delete this post?"
     
@@ -61,27 +61,19 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         
         let post = posts[indexPath.row]
         
-        let actionSheet = UIAlertController(title: post.title, message: nil, preferredStyle: .actionSheet)
-        let editAction = UIAlertAction(title: editText, style: .default, handler: { _ in
+        let editHandler: USPEmptyBlock = { _ in
             self.editPostViewController.post = post
             self.editPostViewController.modifyType = ModifyPostType.Edit
             self.postsViewController.navigationController?.present(self.editPostNavController, animated: true, completion: nil)
-        })
-        actionSheet.addAction(editAction)
-        
-        let deleteAction = UIAlertAction(title: deleteTitle, style: .default, handler: { _ in
-            let onConfirm: USPEmptyBlock = {
-                _ in
+        }
+        let deleteHandler: USPEmptyBlock = { _ in
+            let onConfirm: USPEmptyBlock = { _ in
                 self.deletePost(post)
             }
             UIAlertController.showAlert(title: self.deleteTitle, message: self.deleteMessage, viewController: self.postsViewController, onConfirm: onConfirm)
-        })
-        actionSheet.addAction(deleteAction)
+        }
         
-        let cancelAction = UIAlertAction(title: cancel, style: .cancel, handler:nil)
-        actionSheet.addAction(cancelAction)
-        
-        postsViewController.navigationController?.present(actionSheet, animated: true, completion: nil)
+        UIAlertController.showDualActionWithCancelSheet(title: post.title, firstActionTitle: editTitle, firstActionHandler: editHandler, secondActionTitle: deleteTitle, secondActionHandler: deleteHandler, viewController: postsViewController)
     }
     
     private func deletePost(_ post: Post) {

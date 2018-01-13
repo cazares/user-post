@@ -31,6 +31,7 @@
 		735F7F0B2009A77E00B6668A /* Geographic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F0A2009A77E00B6668A /* Geographic.swift */; };
 		735F7F0D2009B09D00B6668A /* SortListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F0C2009B09D00B6668A /* SortListViewController.swift */; };
 		735F7F102009B3E700B6668A /* UIAlertController+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F0F2009B3E700B6668A /* UIAlertController+Util.swift */; };
+		735F7F122009B71900B6668A /* UIAlertAction+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F112009B71900B6668A /* UIAlertAction+Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		735F7F0A2009A77E00B6668A /* Geographic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geographic.swift; sourceTree = "<group>"; };
 		735F7F0C2009B09D00B6668A /* SortListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortListViewController.swift; sourceTree = "<group>"; };
 		735F7F0F2009B3E700B6668A /* UIAlertController+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Util.swift"; sourceTree = "<group>"; };
+		735F7F112009B71900B6668A /* UIAlertAction+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Util.swift"; sourceTree = "<group>"; };
 		D3463C5243B127995268CC6D /* Pods-UserPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserPost/Pods-UserPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				735F7F0F2009B3E700B6668A /* UIAlertController+Util.swift */,
+				735F7F112009B71900B6668A /* UIAlertAction+Util.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				7343E8E72007FC7E00066741 /* AppDelegate.swift in Sources */,
 				735F7F102009B3E700B6668A /* UIAlertController+Util.swift in Sources */,
 				7343E920200807B700066741 /* UserTableViewCell.swift in Sources */,
+				735F7F122009B71900B6668A /* UIAlertAction+Util.swift in Sources */,
 				735F7EF620080AB600B6668A /* Address.swift in Sources */,
 				735F7EFC2008371400B6668A /* Post.swift in Sources */,
 				735F7F012008386600B6668A /* PostTableViewCell.swift in Sources */,
