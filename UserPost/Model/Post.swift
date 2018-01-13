@@ -15,7 +15,7 @@ class Post: MTLModel, MTLJSONSerializing {
     var title = emptyString
     var id = 0
     
-    public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [ "body": "body",
                  "userId": "userId",
                  "title": "title",

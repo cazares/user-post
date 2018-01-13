@@ -74,7 +74,10 @@ static NSString *kPostsUrl = @"posts";
 - (void)getUsersWithSuccess:(USPGenericBlock)success
                     failure:(USPErrorBlock)failure {
     [self GET:kUsersUrl params:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSArray *users = [MTLJSONAdapter modelsOfClass:[User class] fromJSONArray:responseObject error:nil];
+        NSError *error = nil;
+        NSLog(@"users: %@", responseObject);
+        NSArray *users = [MTLJSONAdapter modelsOfClass:[User class] fromJSONArray:responseObject error:&error];
+        NSLog(@"%@", error);
         success(users);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -98,11 +101,11 @@ static NSString *kPostsUrl = @"posts";
             modifyPostType:(ModifyPostType)modifyPostType
                    success:(USPEmptyBlock)success
                    failure:(USPErrorBlock)failure {
-    NSDictionary *params = @{ @"title": post.title,
-                              @"body": post.body };
+    NSDictionary *params = @{ @"title": @"",//post.title,
+                              @"body": @"" };//post.body };
     NSString *url = kPostsUrl;
     if (modifyPostType != CreateNew) {
-        url = [NSString stringWithFormat:@"%@/%ld", kPostsUrl, post.id];
+        url = [NSString stringWithFormat:@"%@/%ld", kPostsUrl, @(1)];//post.id];
     }
     
     if (modifyPostType == CreateNew) {

@@ -61,13 +61,13 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         
         let post = posts[indexPath.row]
         
-        let editHandler: USPEmptyBlock = { _ in
+        let editHandler: USPEmptyBlock = {
             self.editPostViewController.post = post
             self.editPostViewController.modifyType = ModifyPostType.Edit
             self.postsViewController.navigationController?.present(self.editPostNavController, animated: true, completion: nil)
         }
-        let deleteHandler: USPEmptyBlock = { _ in
-            let onConfirm: USPEmptyBlock = { _ in
+        let deleteHandler: USPEmptyBlock = {
+            let onConfirm: USPEmptyBlock = { 
                 self.deletePost(post)
             }
             UIAlertController.showAlert(title: self.deleteTitle, message: self.deleteMessage, viewController: self.postsViewController, onConfirm: onConfirm)
@@ -80,7 +80,6 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         SwiftSpinner.show(deletingPost)
         
         let onSuccess: USPEmptyBlock = {
-            _ in
             SwiftSpinner.hide()
             self.postsViewController.navigationController?.popViewController(animated: true)
         }

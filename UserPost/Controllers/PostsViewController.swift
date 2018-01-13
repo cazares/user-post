@@ -44,7 +44,7 @@ class PostsViewController: SortListViewController {
         title = "Posts for: \(user.name)"
     }
     
-    internal override func sortPostsWithAscending(_ ascending: Bool) {
+    override func sortPostsWithAscending(_ ascending: Bool) {
         super.sortPostsWithAscending(ascending)
         
         self.postTable.posts.sort {

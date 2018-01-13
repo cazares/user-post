@@ -20,17 +20,18 @@ class SortListViewController: UIViewController {
         navigationItem.rightBarButtonItem = sortButton
     }
     
-    public func sortButtonPressed() {
-        let ascendingAction: USPEmptyBlock = { _ in
+    @objc
+    func sortButtonPressed() {
+        let ascendingAction: USPEmptyBlock = {
             self.sortPostsWithAscending(true)
         }
         
-        let descendingAction: USPEmptyBlock = { _ in
+        let descendingAction: USPEmptyBlock = { 
             self.sortPostsWithAscending(false)
         }
         
         UIAlertController.showDualActionWithCancelSheet(title: sortTitle, firstActionTitle: ascendingTitle, firstActionHandler: ascendingAction, secondActionTitle: descendingTitle, secondActionHandler: descendingAction, viewController: self)
     }
     
-    internal func sortPostsWithAscending(_ ascending: Bool) { }
+    func sortPostsWithAscending(_ ascending: Bool) { }
 }

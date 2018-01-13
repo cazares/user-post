@@ -19,7 +19,7 @@ class User: MTLModel, MTLJSONSerializing {
     var website = emptyString
     var company = Company()!
     
-    public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [ "name": "name",
                  "username": "username",
                  "email": "email",
@@ -30,7 +30,7 @@ class User: MTLModel, MTLJSONSerializing {
                  "company": "company" ]
     }
     
-    public static func addressJSONTransformer() -> ValueTransformer {
+    static func addressJSONTransformer() -> ValueTransformer {
         return MTLValueTransformer(block: { (payload) in
             do {
                 return try MTLJSONAdapter.model(of: Address.self, fromJSONDictionary: payload as! [AnyHashable: Any], error: ()) as! Address
@@ -39,7 +39,7 @@ class User: MTLModel, MTLJSONSerializing {
         })
     }
     
-    public static func companyJSONTransformer() -> ValueTransformer {
+    static func companyJSONTransformer() -> ValueTransformer {
         return MTLValueTransformer(block: { (payload) in
             do {
                 return try MTLJSONAdapter.model(of: Company.self, fromJSONDictionary: payload as! [AnyHashable: Any], error: ()) as! Company
@@ -48,7 +48,7 @@ class User: MTLModel, MTLJSONSerializing {
         })
     }
     
-    public override func description() -> String! {
+    override func description() -> String! {
         return """
         Username: \(username)
         Email: \(email)

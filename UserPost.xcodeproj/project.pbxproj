@@ -40,6 +40,7 @@
 		735F7F1E2009C43500B6668A /* app-icon@2x~iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 735F7F192009C43500B6668A /* app-icon@2x~iPad.png */; };
 		735F7F202009C52700B6668A /* app-store-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 735F7F1F2009C52600B6668A /* app-store-icon.png */; };
 		735F7F23200A8E4E00B6668A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F22200A8E4E00B6668A /* Constants.swift */; };
+		735F7F25200A927600B6668A /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F24200A927600B6668A /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		735F7F192009C43500B6668A /* app-icon@2x~iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon@2x~iPad.png"; sourceTree = "<group>"; };
 		735F7F1F2009C52600B6668A /* app-store-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-store-icon.png"; sourceTree = "<group>"; };
 		735F7F22200A8E4E00B6668A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		735F7F24200A927600B6668A /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		D3463C5243B127995268CC6D /* Pods-UserPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserPost/Pods-UserPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +217,7 @@
 			children = (
 				7343E917200801B800066741 /* USPAPIClient.h */,
 				7343E918200801B800066741 /* USPAPIClient.m */,
+				735F7F24200A927600B6668A /* APIClient.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UserPost/Pods-UserPost-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/LHSCategoryCollection/LHSCategoryCollection.framework",
 				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
@@ -454,6 +458,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LHSCategoryCollection.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
@@ -496,6 +501,7 @@
 				735F7F0D2009B09D00B6668A /* SortListViewController.swift in Sources */,
 				735F7EF420080A7C00B6668A /* User.swift in Sources */,
 				7343E91E2008078C00066741 /* UsersTableView.swift in Sources */,
+				735F7F25200A927600B6668A /* APIClient.swift in Sources */,
 				735F7EFF200837BE00B6668A /* BaseTableViewCell.swift in Sources */,
 				735F7EFA2008332600B6668A /* PostsTableView.swift in Sources */,
 				735F7F032008422A00B6668A /* EditPostViewController.swift in Sources */,
@@ -673,7 +679,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cazares.userPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mcazares/src/user-post/UserPost/UserPost-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -690,7 +696,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = cazares.userPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mcazares/src/user-post/UserPost/UserPost-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

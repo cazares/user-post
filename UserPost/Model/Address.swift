@@ -16,7 +16,7 @@ class Address: MTLModel, MTLJSONSerializing {
     var zipcode = emptyString
     var geographic = Geographic()!
     
-    public static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
+    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
         return [ "street": "street",
                  "suite": "suite",
                  "city": "city",
@@ -24,7 +24,7 @@ class Address: MTLModel, MTLJSONSerializing {
                  "geographic": "geo" ]
     }
     
-    public static func geographicJSONTransformer() -> ValueTransformer {
+    static func geographicJSONTransformer() -> ValueTransformer {
         return MTLValueTransformer(block: { (payload) in
             do {
                 return try MTLJSONAdapter.model(of: Geographic.self, fromJSONDictionary: payload as! [AnyHashable: Any], error: ()) as! Geographic
@@ -33,7 +33,7 @@ class Address: MTLModel, MTLJSONSerializing {
         })
     }
     
-    public override func description() -> String! {
+    override func description() -> String! {
         return """
             Street: \(street)
             Suite: \(suite)
