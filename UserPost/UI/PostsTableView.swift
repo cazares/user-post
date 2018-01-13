@@ -14,7 +14,8 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     let postRowHeight = CGFloat(100.0)
     let deletingPost = "Deleting Post"
     let editText = "Edit Post"
-    let deleteText = "Delete Post"
+    let deleteTitle = "Delete Post"
+    let deleteMessage = "Are you sure you want to delete this post?"
     
     weak var postsViewController: PostsViewController!
     private var editPostViewController = EditPostViewController()
@@ -68,8 +69,12 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         })
         actionSheet.addAction(editAction)
         
-        let deleteAction = UIAlertAction(title: deleteText, style: .default, handler: { _ in
-            self.deletePost(post)
+        let deleteAction = UIAlertAction(title: deleteTitle, style: .default, handler: { _ in
+            let onConfirm: USPEmptyBlock = {
+                _ in
+                self.deletePost(post)
+            }
+            UIAlertController.showAlert(title: self.deleteTitle, message: self.deleteMessage, viewController: self.postsViewController, onConfirm: onConfirm)
         })
         actionSheet.addAction(deleteAction)
         

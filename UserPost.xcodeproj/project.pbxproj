@@ -30,6 +30,7 @@
 		735F7F092009A3FD00B6668A /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F082009A3FD00B6668A /* Company.swift */; };
 		735F7F0B2009A77E00B6668A /* Geographic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F0A2009A77E00B6668A /* Geographic.swift */; };
 		735F7F0D2009B09D00B6668A /* SortListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F0C2009B09D00B6668A /* SortListViewController.swift */; };
+		735F7F102009B3E700B6668A /* UIAlertController+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735F7F0F2009B3E700B6668A /* UIAlertController+Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		735F7F082009A3FD00B6668A /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		735F7F0A2009A77E00B6668A /* Geographic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geographic.swift; sourceTree = "<group>"; };
 		735F7F0C2009B09D00B6668A /* SortListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortListViewController.swift; sourceTree = "<group>"; };
+		735F7F0F2009B3E700B6668A /* UIAlertController+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Util.swift"; sourceTree = "<group>"; };
 		D3463C5243B127995268CC6D /* Pods-UserPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UserPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UserPost/Pods-UserPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 		7343E8E52007FC7E00066741 /* UserPost */ = {
 			isa = PBXGroup;
 			children = (
+				735F7F0E2009B3DB00B6668A /* Util */,
 				735F7EFD2008379E00B6668A /* Base Components */,
 				7343E921200809A600066741 /* Model */,
 				7343E91C2008076E00066741 /* UI */,
@@ -227,6 +230,14 @@
 				735F7F0C2009B09D00B6668A /* SortListViewController.swift */,
 			);
 			path = "Base Components";
+			sourceTree = "<group>";
+		};
+		735F7F0E2009B3DB00B6668A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				735F7F0F2009B3E700B6668A /* UIAlertController+Util.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		D154B2C4845E6AF8C54ABB3E /* Pods */ = {
@@ -449,6 +460,7 @@
 				735F7EFA2008332600B6668A /* PostsTableView.swift in Sources */,
 				735F7F032008422A00B6668A /* EditPostViewController.swift in Sources */,
 				7343E8E72007FC7E00066741 /* AppDelegate.swift in Sources */,
+				735F7F102009B3E700B6668A /* UIAlertController+Util.swift in Sources */,
 				7343E920200807B700066741 /* UserTableViewCell.swift in Sources */,
 				735F7EF620080AB600B6668A /* Address.swift in Sources */,
 				735F7EFC2008371400B6668A /* Post.swift in Sources */,
