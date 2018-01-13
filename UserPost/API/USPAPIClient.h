@@ -21,9 +21,4 @@ typedef void (^USPErrorBlock)(NSError *error);
 
 + (instancetype)sharedClient;
 
-- (void)modifyPostWithPost:(Post *)post
-            modifyPostType:(ModifyPostType)modifyPostType
-                   success:(USPEmptyBlock)success
-                   failure:(USPErrorBlock)failure;
-
 @end

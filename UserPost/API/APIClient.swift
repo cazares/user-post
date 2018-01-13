@@ -16,9 +16,9 @@ enum ApiError: Error {
 }
 
 enum ModifyPostType {
-    CreateNew = 0,
-    Edit = 1,
-    Delete = 2
+    case CreateNew = 0,
+    case Edit = 1,
+    case Delete = 2
 }
 
 class APIClient: SessionManager {

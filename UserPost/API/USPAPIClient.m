@@ -71,39 +71,4 @@ static NSString *kPostsUrl = @"posts";
     }];
 }
 
-- (void)modifyPostWithPost:(Post *)post
-            modifyPostType:(ModifyPostType)modifyPostType
-                   success:(USPEmptyBlock)success
-                   failure:(USPErrorBlock)failure {
-    NSDictionary *params = @{ @"title": @"",//post.title,
-                              @"body": @"" };//post.body };
-    NSString *url = kPostsUrl;
-    if (modifyPostType != CreateNew) {
-        url = [NSString stringWithFormat:@"%@/%ld", kPostsUrl, @(1)];//post.id];
-    }
-    
-    if (modifyPostType == CreateNew) {
-        [self POST:url params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            success();
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            failure(error);
-        }];
-    }
-    else if (modifyPostType == Edit) {
-        [self PUT:url params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            success();
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            failure(error);
-        }];
-    }
-    else {
-        // doing else instead of else if to avoid being locked into a spinner
-        [self DELETE:url params:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            success();
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            failure(error);
-        }];
-    }
-}
-
 @end

@@ -79,15 +79,16 @@ class PostsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     private func deletePost(_ post: Post) {
         SwiftSpinner.show(deletingPost)
         
-        let onSuccess: USPEmptyBlock = {
+        let onSuccess: () -> () = {
             SwiftSpinner.hide()
             self.postsViewController.navigationController?.popViewController(animated: true)
         }
-        let onFailure: USPErrorBlock = {
-            print($0)
+        let onFailure: (Error) -> () = {
+            error in
+            print(error)
             SwiftSpinner.hide()
         }
-        USPAPIClient.shared().modifyPost(with: post, modifyPostType: ModifyPostType.Delete, success: onSuccess, failure: onFailure)
+        APIClient.modifyPost(post, modifyPostType: .Delete, success: onSuccess, failure: onFailure)
     }
     
     required init?(coder aDecoder: NSCoder) {
