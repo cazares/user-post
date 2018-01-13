@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import LionheartExtensions
 
 class EditPostViewController: UIViewController {
     let cancelTitle = "Cancel"
@@ -79,7 +80,7 @@ class EditPostViewController: UIViewController {
                         "textViewHeight": textViewHeight,
                         "labelHeight": labelHeight ] as [String: AnyHashable]
         
-        view.lhs_addConstraints("V:|-(pad)-[titleLabel(labelHeight)]-[titleTextField(labelHeight)]-[bodyLabel(labelHeight)]-[bodyTextView]-(pad)-|", metrics: metrics, views: views)
+        UIView.addVisualFormatConstraints("V:|-(pad)-[titleLabel(labelHeight)]-[titleTextField(labelHeight)]-[bodyLabel(labelHeight)]-[bodyTextView]-(pad)-|", metrics: metrics, views: views)
         
         setHorizontalConstraintsForView(postTitleLabel, metrics: metrics)
         setHorizontalConstraintsForView(postTitleTextField, metrics: metrics)
@@ -89,7 +90,7 @@ class EditPostViewController: UIViewController {
     
     private func setHorizontalConstraintsForView(_ view: UIView, metrics: [String: AnyHashable]) {
         let views = [ "view": view ]
-        self.view.lhs_addConstraints("H:|-(pad)-[view]-(pad)-|", metrics: metrics, views: views)
+        UIView.addVisualFormatConstraints("H:|-(pad)-[view]-(pad)-|", metrics: metrics, views: views)
     }
     
     private func resetFields() {
