@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftSpinner
+import LionheartExtensions
 
 class UsersViewController: SortListViewController {
 
@@ -24,8 +25,8 @@ class UsersViewController: SortListViewController {
         userTable.usersViewController = self
         view.addSubview(userTable)
         
-        userTable.lhs_fillWidthOfSuperview()
-        userTable.lhs_fillHeightOfSuperview()
+        userTable.fillWidthOfSuperview()
+        userTable.fillHeightOfSuperview()
     }
     
     override func viewDidAppear(_ animated: Bool) {

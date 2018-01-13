@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LionheartExtensions
 
 class BaseTableViewCell: UITableViewCell {
 
@@ -46,10 +47,10 @@ class BaseTableViewCell: UITableViewCell {
         let views: [String: Any] = ["label": label,
                                     "detail": detailLabel]
         
-        lhs_addConstraints("H:|-(pad)-[label]-(pad)-|", metrics: metrics, views: views)
-        lhs_addConstraints("H:|-(pad)-[detail]-(pad)-|", metrics: metrics, views: views)
+        UIView.addVisualFormatConstraints("H:|-(pad)-[label]-(pad)-|", metrics: metrics, views: views)
+        UIView.addVisualFormatConstraints("H:|-(pad)-[detail]-(pad)-|", metrics: metrics, views: views)
         
-        lhs_addConstraints("V:|-(pad)-[label(labelHeight)]-[detail]-(pad)-|", metrics: metrics, views: views)
+        UIView.addVisualFormatConstraints("V:|-(pad)-[label(labelHeight)]-[detail]-(pad)-|", metrics: metrics, views: views)
     }
     
     private func initLabel(fontSize: CGFloat) -> UILabel {

@@ -14,7 +14,6 @@
 		7343E8F12007FC7E00066741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7343E8EF2007FC7E00066741 /* LaunchScreen.storyboard */; };
 		7343E8FC2007FC7E00066741 /* UserPostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E8FB2007FC7E00066741 /* UserPostTests.swift */; };
 		7343E9072007FC7E00066741 /* UserPostUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E9062007FC7E00066741 /* UserPostUITests.swift */; };
-		7343E919200801B800066741 /* USPAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7343E918200801B800066741 /* USPAPIClient.m */; };
 		7343E91B2008068100066741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7343E91A2008068100066741 /* Main.storyboard */; };
 		7343E91E2008078C00066741 /* UsersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E91D2008078C00066741 /* UsersTableView.swift */; };
 		7343E920200807B700066741 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7343E91F200807B700066741 /* UserTableViewCell.swift */; };
@@ -75,9 +74,6 @@
 		7343E9022007FC7E00066741 /* UserPostUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserPostUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7343E9062007FC7E00066741 /* UserPostUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPostUITests.swift; sourceTree = "<group>"; };
 		7343E9082007FC7E00066741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7343E9142007FD8200066741 /* UserPost-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UserPost-Bridging-Header.h"; sourceTree = "<group>"; };
-		7343E917200801B800066741 /* USPAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = USPAPIClient.h; sourceTree = "<group>"; };
-		7343E918200801B800066741 /* USPAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = USPAPIClient.m; sourceTree = "<group>"; };
 		7343E91A2008068100066741 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7343E91D2008078C00066741 /* UsersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableView.swift; sourceTree = "<group>"; };
 		7343E91F200807B700066741 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,7 +173,6 @@
 				7343E8ED2007FC7E00066741 /* Assets.xcassets */,
 				7343E8EF2007FC7E00066741 /* LaunchScreen.storyboard */,
 				7343E8F22007FC7E00066741 /* Info.plist */,
-				7343E9142007FD8200066741 /* UserPost-Bridging-Header.h */,
 				7343E91A2008068100066741 /* Main.storyboard */,
 				735F7F22200A8E4E00B6668A /* Constants.swift */,
 			);
@@ -215,8 +210,6 @@
 		7343E9162008004600066741 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				7343E917200801B800066741 /* USPAPIClient.h */,
-				7343E918200801B800066741 /* USPAPIClient.m */,
 				735F7F24200A927600B6668A /* APIClient.swift */,
 			);
 			path = API;
@@ -449,18 +442,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-UserPost/Pods-UserPost-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/LHSCategoryCollection/LHSCategoryCollection.framework",
-				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
+				"${BUILT_PRODUCTS_DIR}/LionheartExtensions/LionheartExtensions.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LHSCategoryCollection.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LionheartExtensions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,7 +484,6 @@
 			files = (
 				735F7EF82008330C00B6668A /* PostsViewController.swift in Sources */,
 				735F7F052008474300B6668A /* BaseLabel.swift in Sources */,
-				7343E919200801B800066741 /* USPAPIClient.m in Sources */,
 				7343E8E92007FC7E00066741 /* UsersViewController.swift in Sources */,
 				735F7F0B2009A77E00B6668A /* Geographic.swift in Sources */,
 				735F7F0D2009B09D00B6668A /* SortListViewController.swift in Sources */,
@@ -678,7 +666,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cazares.userPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mcazares/src/user-post/UserPost/UserPost-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -695,7 +682,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cazares.userPost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/mcazares/src/user-post/UserPost/UserPost-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

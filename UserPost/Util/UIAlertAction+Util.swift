@@ -6,10 +6,10 @@
 //  Copyright © 2018 Miguel Cazares. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIAlertAction {
-    convenience init(title: String, handler: @escaping USPEmptyBlock) {
-        self.init(title: title, style: .default, handler: { _ in handler() })
+    convenience init(title: String, handler: @escaping (UIAlertAction) -> ()) {
+        self.init(title: title, style: .default, handler: handler)
     }
 }
