@@ -7,24 +7,6 @@
 //
 
 import UIKit
-/*import Mantle
-
-class Geographic: MTLModel, MTLJSONSerializing {
-    var latitude = 0.0
-    var longitude = 0.0
-    
-    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-        return [ "latitude": "lat",
-                 "longitude": "lng" ]
-    }
-    
-    override func description() -> String! {
-        return """
-        \tLatitude: \(latitude)
-        \tLongitude: \(longitude)
-        """
-    }
-}*/
 
 struct Geographic: Decodable {
     let latitude: Double

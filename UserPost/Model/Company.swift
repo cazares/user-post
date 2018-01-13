@@ -7,27 +7,6 @@
 //
 
 import UIKit
-/*import Mantle
-
-class Company: MTLModel, MTLJSONSerializing {
-    var name = emptyString
-    var catchPhrase = emptyString
-    var bs = emptyString
-    
-    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-        return [ "name": "name",
-                 "catchPhrase": "catchPhrase",
-                 "bs": "bs"]
-    }
-    
-    override func description() -> String! {
-        return """
-            Name: \(name)
-            Catch Phrase: \(catchPhrase)
-            Tagline: \(bs)
-        """
-    }
-}*/
 
 struct Company: Decodable {
     let name: String

@@ -7,44 +7,6 @@
 //
 
 import UIKit
-/*import Mantle
-
-class Address: MTLModel, MTLJSONSerializing {
-    var street = emptyString
-    var suite = emptyString
-    var city = emptyString
-    var zipcode = emptyString
-    var geographic = Geographic()!
-    
-    static func jsonKeyPathsByPropertyKey() -> [AnyHashable : Any]! {
-        return [ "street": "street",
-                 "suite": "suite",
-                 "city": "city",
-                 "zipcode": "zipcode",
-                 "geographic": "geo" ]
-    }
-    
-    static func geographicJSONTransformer() -> ValueTransformer {
-        return MTLValueTransformer(block: { (payload) in
-            do {
-                return try MTLJSONAdapter.model(of: Geographic.self, fromJSONDictionary: payload as! [AnyHashable: Any], error: ()) as! Geographic
-            } catch { }
-            return nil
-        })
-    }
-    
-    override func description() -> String! {
-        return """
-            Street: \(street)
-            Suite: \(suite)
-            City: \(city)
-            Zipcode: \(zipcode)
-            Geographic Location
-            \(geographic.description)
-        """
-    }
-}
-*/
 
 struct Address: Decodable {
     let street: String

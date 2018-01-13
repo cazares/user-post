@@ -16,22 +16,18 @@ class APIClient: SessionManager {
     static func getUsers(success: @escaping ([User]) -> (), failure: @escaping (NSError) -> ()) {
         Alamofire.request("\(baseUrl)/\(usersUrl)")
         .responseJSON { response in
+            if response.result.isFailure {
+                failure(error)
+                return
+            }
             
-           // switch response.result {
-                
-            //case .Success(let data):
-                do {
-                    let users = try JSONDecoder().decode([User].self, from: response.data!)
-                    success(users)
-                } catch {
-                    print("error parsing users from server")
-                    failure(NSError())
-                }
-                
-            //case .Failure(let error):
-            //    print("Get users error: \(error)" )
-            //    failure(error)
-            //}
+            do {
+                let users = try JSONDecoder().decode([User].self, from: response.data!)
+                success(users)
+            } catch {
+                print("error parsing users from server")
+                failure(NSError())
+            }
         }
     }
 }
