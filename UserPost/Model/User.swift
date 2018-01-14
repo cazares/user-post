@@ -28,15 +28,15 @@ extension User {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: UserKeys.self)
         
-        let id: Int = try container.decode(Int.self, forKey: .id)
-        let name: String = try container.decode(String.self, forKey: .name)
-        let username: String = try container.decode(String.self, forKey: .username)
-        let email: String = try container.decode(String.self, forKey: .email)
+        let id = try container.decode(Int.self, forKey: .id)
+        let name = try container.decode(String.self, forKey: .name)
+        let username = try container.decode(String.self, forKey: .username)
+        let email = try container.decode(String.self, forKey: .email)
         
-        let address: Address = try container.decode(Address.self, forKey: .address)
-        let phone: String = try container.decode(String.self, forKey: .phone)
-        let website: String = try container.decode(String.self, forKey: .website)
-        let company: Company = try container.decode(Company.self, forKey: .company)
+        let address = try container.decode(Address.self, forKey: .address)
+        let phone = try container.decode(String.self, forKey: .phone)
+        let website = try container.decode(String.self, forKey: .website)
+        let company = try container.decode(Company.self, forKey: .company)
         
         self.init(id: id, name: name, username: username, email: email, address: address, phone: phone, website: website, company: company)
     }

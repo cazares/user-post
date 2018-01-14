@@ -24,10 +24,10 @@ extension Address {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: AddressKeys.self)
         
-        let street: String = try container.decode(String.self, forKey: .street)
-        let suite: String = try container.decode(String.self, forKey: .suite)
-        let city: String = try container.decode(String.self, forKey: .city)
-        let zipcode: String = try container.decode(String.self, forKey: .zipcode)
+        let street = try container.decode(String.self, forKey: .street)
+        let suite = try container.decode(String.self, forKey: .suite)
+        let city = try container.decode(String.self, forKey: .city)
+        let zipcode = try container.decode(String.self, forKey: .zipcode)
         
         let geographic: Geographic = try container.decode(Geographic.self, forKey: .geographic)
         

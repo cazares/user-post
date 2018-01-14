@@ -22,9 +22,9 @@ extension Company {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CompanyKeys.self)
         
-        let name: String = try container.decode(String.self, forKey: .name)
-        let catchPhrase: String = try container.decode(String.self, forKey: .catchPhrase)
-        let tagline: String = try container.decode(String.self, forKey: .tagline)
+        let name = try container.decode(String.self, forKey: .name)
+        let catchPhrase = try container.decode(String.self, forKey: .catchPhrase)
+        let tagline = try container.decode(String.self, forKey: .tagline)
         
         self.init(name: name, catchPhrase: catchPhrase, tagline: tagline)
     }

@@ -35,8 +35,8 @@ extension Post {
         var id = 0
         
         do {
-            userId = try container.decode(Int.self, forKey: .userId)
-            id = try container.decode(Int.self, forKey: .id)
+            userId = (try container.decode(String.self, forKey: .userId) as NSString).integerValue
+            id = (try container.decode(String.self, forKey: .id) as NSString).integerValue
             body = try container.decode(String.self, forKey: .body)
             title = try container.decode(String.self, forKey: .title)
         } catch (let error) {
