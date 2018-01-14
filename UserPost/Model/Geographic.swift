@@ -25,10 +25,8 @@ extension Geographic {
         var longitude = 0.0
         
         do {
-            let latitudeString = try container.decode(String.self, forKey: .latitude)
-            latitude = (latitudeString as NSString).doubleValue
-            //latitude = try container.decode(Double.self, forKey: .latitude)
-            longitude = try container.decode(Double.self, forKey: .longitude)
+            latitude = (try container.decode(String.self, forKey: .latitude) as NSString).doubleValue
+            longitude = (try container.decode(String.self, forKey: .longitude) as NSString).doubleValue
         } catch (let error) {
             print(error)
         }
