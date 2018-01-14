@@ -47,7 +47,7 @@ class APIClient: SessionManager {
     }
     
     static func getPosts(userId: Int, success: @escaping ([Post]) -> (), failure: @escaping (Error) -> ()) {
-        Alamofire.request("\(baseUrl)/\(postsUrl)")
+        Alamofire.request("\(baseUrl)/\(postsUrl)?userId=\(userId)")
             .responseJSON { response in
                 APIClient.handleGetPosts(response: response, success: success, failure: failure)
         }
@@ -61,16 +61,13 @@ class APIClient: SessionManager {
         do {
             let posts = try JSONDecoder().decode([Post].self, from: response.data!)
             success(posts)
-        } catch {
+        } catch (let error) {
+            print(error)
             failure(ApiError.getPostsParseError)
         }
     }
     
     static func modifyPost(_ post: Post, modifyPostType: ModifyPostType, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
-        Alamofire.request("\(baseUrl)/\(postsUrl)")
-            .responseJSON { response in
-                APIClient.handleModifyPost(response: response, success: success, failure: failure)
-        }
         var url = postsUrl
         var httpMethod: HTTPMethod = .post
         
