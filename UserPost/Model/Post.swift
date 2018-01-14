@@ -17,19 +17,14 @@ struct Post: Decodable {
     enum PostKeys: String, CodingKey {
         case body, userId, title, id
     }
-    
+}
+
+extension Post {
     init() {
         body = emptyString
         userId = 0
         title = emptyString
         id = 0
-    }
-    
-    init(body: String, userId: Int, title: String, id: Int) {
-        self.body = body
-        self.userId = userId
-        self.title = title
-        self.id = id
     }
     
     init(from decoder: Decoder) throws {
