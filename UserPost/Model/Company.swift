@@ -31,9 +31,9 @@ extension Company {
     
     var description: String {
         return """
-        Name: \(name)
-        Catch Phrase: \(catchPhrase)
-        Tagline: \(tagline)
+            Name: \(name)
+            Catch Phrase: \(catchPhrase)
+            Tagline: \(tagline)
         """
     }
 }

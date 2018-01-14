@@ -35,8 +35,8 @@ extension Geographic {
     
     var description: String {
         return """
-            \tLatitude: \(latitude)
-            \tLongitude: \(longitude)
+            Latitude: \(latitude)
+            Longitude: \(longitude)
         """
     }
 }

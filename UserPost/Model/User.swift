@@ -43,14 +43,14 @@ extension User {
     
     var description: String {
         return """
-            Username: \(username)
-            Email: \(email)
-            Address
-            \(address.description)
-            Phone: \(phone)
-            Website: \(website)
-            Company
-            \(company.description)
+        Username: \(username)
+        Email: \(email)
+        Address
+        \(address.description)
+        Phone: \(phone)
+        Website: \(website)
+        Company
+        \(company.description)
         """
     }
 }
