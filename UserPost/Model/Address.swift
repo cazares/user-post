@@ -18,15 +18,9 @@ struct Address: Decodable {
     enum AddressKeys: String, CodingKey {
         case street, suite, city, zipcode, geographic = "geo"
     }
-    
-    init(street: String, suite: String, city: String, zipcode: String, geographic: Geographic) {
-        self.street = street
-        self.suite = suite
-        self.city = city
-        self.zipcode = zipcode
-        self.geographic = geographic
-    }
-    
+}
+
+extension Address {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: AddressKeys.self)
         
@@ -41,12 +35,12 @@ struct Address: Decodable {
     
     var description: String {
         return """
-            Street: \(street)
-            Suite: \(suite)
-            City: \(city)
-            Zipcode: \(zipcode)
-            Geographic Location
-            \(geographic.description)
+        Street: \(street)
+        Suite: \(suite)
+        City: \(city)
+        Zipcode: \(zipcode)
+        Geographic Location
+        \(geographic.description)
         """
     }
 }

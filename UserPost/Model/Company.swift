@@ -16,13 +16,9 @@ struct Company: Decodable {
     enum CompanyKeys: String, CodingKey {
         case name, catchPhrase, tagline = "bs"
     }
-    
-    init(name: String, catchPhrase: String, tagline: String) {
-        self.name = name
-        self.catchPhrase = catchPhrase
-        self.tagline = tagline
-    }
-    
+}
+
+extension Company {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CompanyKeys.self)
         
@@ -35,9 +31,9 @@ struct Company: Decodable {
     
     var description: String {
         return """
-            Name: \(name)
-            Catch Phrase: \(catchPhrase)
-            Tagline: \(tagline)
+        Name: \(name)
+        Catch Phrase: \(catchPhrase)
+        Tagline: \(tagline)
         """
     }
 }
