@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Post: Decodable {
+struct Post: Codable {
     var body: String
     let userId: Int
     var title: String
@@ -35,10 +35,10 @@ extension Post {
         var id = 0
         
         do {
-            body = try container.decode(String.self, forKey: .body)
             userId = try container.decode(Int.self, forKey: .userId)
-            title = try container.decode(String.self, forKey: .title)
             id = try container.decode(Int.self, forKey: .id)
+            body = try container.decode(String.self, forKey: .body)
+            title = try container.decode(String.self, forKey: .title)
         } catch (let error) {
             print(error)
         }

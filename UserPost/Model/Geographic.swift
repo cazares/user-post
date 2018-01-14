@@ -8,17 +8,17 @@
 
 import UIKit
 
-struct Geographic: Decodable {
+struct Geographic: Codable {
     let latitude: Double
     let longitude: Double
-    
+}
+
+extension Geographic {
     enum GeographicKeys: String, CodingKey {
         case latitude = "lat"
         case longitude = "lng"
     }
-}
-
-extension Geographic {
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: GeographicKeys.self)
         var latitude = 0.0

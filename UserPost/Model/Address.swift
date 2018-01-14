@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Address: Decodable {
+struct Address: Codable {
     let street: String
     let suite: String
     let city: String
