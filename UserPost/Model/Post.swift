@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Post: Decodable {
+struct Post: Codable {
     var body: String
     let userId: Int
     var title: String
@@ -17,7 +17,9 @@ struct Post: Decodable {
     enum PostKeys: String, CodingKey {
         case body, userId, title, id
     }
-    
+}
+
+extension Post {
     init() {
         body = emptyString
         userId = 0
@@ -25,21 +27,29 @@ struct Post: Decodable {
         id = 0
     }
     
-    init(body: String, userId: Int, title: String, id: Int) {
-        self.body = body
-        self.userId = userId
-        self.title = title
-        self.id = id
-    }
-    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: PostKeys.self)
+        var body = emptyString
+        var userId = 0
+        var title = emptyString
+        var id = 0
         
-        let body = try container.decode(String.self, forKey: .body)
-        let userId = try container.decode(Int.self, forKey: .userId)
-        let title = try container.decode(String.self, forKey: .title)
-        let id = try container.decode(Int.self, forKey: .id)
-        
+        do {
+            userId = try container.decode(Int.self, forKey: .userId)
+        } catch {
+            userId = (try container.decode(String.self, forKey: .userId) as NSString).integerValue
+        }
+        do {
+            id = try container.decode(Int.self, forKey: .id)
+        } catch {
+            id = (try container.decode(String.self, forKey: .id) as NSString).integerValue
+        }
+        do {
+            body = try container.decode(String.self, forKey: .body)
+            title = try container.decode(String.self, forKey: .title)
+        } catch (let error) {
+            print(error)
+        }
         self.init(body: body, userId: userId, title: title, id: id)
     }
 }

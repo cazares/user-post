@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Company: Decodable {
+struct Company: Codable {
     let name: String
     let catchPhrase: String
     let tagline: String
@@ -16,19 +16,15 @@ struct Company: Decodable {
     enum CompanyKeys: String, CodingKey {
         case name, catchPhrase, tagline = "bs"
     }
-    
-    init(name: String, catchPhrase: String, tagline: String) {
-        self.name = name
-        self.catchPhrase = catchPhrase
-        self.tagline = tagline
-    }
-    
+}
+
+extension Company {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CompanyKeys.self)
         
-        let name: String = try container.decode(String.self, forKey: .name)
-        let catchPhrase: String = try container.decode(String.self, forKey: .catchPhrase)
-        let tagline: String = try container.decode(String.self, forKey: .tagline)
+        let name = try container.decode(String.self, forKey: .name)
+        let catchPhrase = try container.decode(String.self, forKey: .catchPhrase)
+        let tagline = try container.decode(String.self, forKey: .tagline)
         
         self.init(name: name, catchPhrase: catchPhrase, tagline: tagline)
     }

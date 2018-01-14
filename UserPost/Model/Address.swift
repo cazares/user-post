@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Address: Decodable {
+struct Address: Codable {
     let street: String
     let suite: String
     let city: String
@@ -18,22 +18,17 @@ struct Address: Decodable {
     enum AddressKeys: String, CodingKey {
         case street, suite, city, zipcode, geographic = "geo"
     }
-    
-    init(street: String, suite: String, city: String, zipcode: String, geographic: Geographic) {
-        self.street = street
-        self.suite = suite
-        self.city = city
-        self.zipcode = zipcode
-        self.geographic = geographic
-    }
-    
+}
+
+extension Address {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: AddressKeys.self)
         
-        let street: String = try container.decode(String.self, forKey: .street)
-        let suite: String = try container.decode(String.self, forKey: .suite)
-        let city: String = try container.decode(String.self, forKey: .city)
-        let zipcode: String = try container.decode(String.self, forKey: .zipcode)
+        let street = try container.decode(String.self, forKey: .street)
+        let suite = try container.decode(String.self, forKey: .suite)
+        let city = try container.decode(String.self, forKey: .city)
+        let zipcode = try container.decode(String.self, forKey: .zipcode)
+        
         let geographic: Geographic = try container.decode(Geographic.self, forKey: .geographic)
         
         self.init(street: street, suite: suite, city: city, zipcode: zipcode, geographic: geographic)
@@ -41,12 +36,12 @@ struct Address: Decodable {
     
     var description: String {
         return """
-            Street: \(street)
-            Suite: \(suite)
-            City: \(city)
-            Zipcode: \(zipcode)
-            Geographic Location
-            \(geographic.description)
+        Street: \(street)
+        Suite: \(suite)
+        City: \(city)
+        Zipcode: \(zipcode)
+        Geographic Location
+        \(geographic.description)
         """
     }
 }

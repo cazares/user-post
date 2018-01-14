@@ -8,18 +8,15 @@
 
 import UIKit
 
-struct Geographic: Decodable {
+struct Geographic: Codable {
     let latitude: Double
     let longitude: Double
-    
+}
+
+extension Geographic {
     enum GeographicKeys: String, CodingKey {
         case latitude = "lat"
         case longitude = "lng"
-    }
-    
-    init(latitude: Double, longitude: Double) {
-        self.latitude = latitude
-        self.longitude = longitude
     }
     
     init(from decoder: Decoder) throws {
@@ -28,8 +25,8 @@ struct Geographic: Decodable {
         var longitude = 0.0
         
         do {
-            latitude = try container.decode(Double.self, forKey: .latitude)
-            longitude = try container.decode(Double.self, forKey: .longitude)
+            latitude = (try container.decode(String.self, forKey: .latitude) as NSString).doubleValue
+            longitude = (try container.decode(String.self, forKey: .longitude) as NSString).doubleValue
         } catch (let error) {
             print(error)
         }
@@ -38,8 +35,8 @@ struct Geographic: Decodable {
     
     var description: String {
         return """
-            \tLatitude: \(latitude)
-            \tLongitude: \(longitude)
+            Latitude: \(latitude)
+            Longitude: \(longitude)
         """
     }
 }
