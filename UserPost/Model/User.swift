@@ -22,19 +22,9 @@ struct User: Decodable {
     enum UserKeys: String, CodingKey {
         case id, name, username, email, address, phone, website, company
     }
-    
-    init(id: Int, name: String, username: String, email: String, address: Address, phone: String, website: String, company: Company) {
-        self.id = id
-        self.name = name
-        self.username = name
-        self.email = email
-        
-        self.address = address
-        self.phone = phone
-        self.website = website
-        self.company = company
-    }
-    
+}
+
+extension User {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: UserKeys.self)
         
@@ -53,14 +43,14 @@ struct User: Decodable {
     
     var description: String {
         return """
-            Username: \(username)
-            Email: \(email)
-            Address
-            \(address.description)
-            Phone: \(phone)
-            Website: \(website)
-            Company
-            \(company.description)
+        Username: \(username)
+        Email: \(email)
+        Address
+        \(address.description)
+        Phone: \(phone)
+        Website: \(website)
+        Company
+        \(company.description)
         """
     }
 }
