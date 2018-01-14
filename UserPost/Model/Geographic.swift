@@ -25,7 +25,9 @@ extension Geographic {
         var longitude = 0.0
         
         do {
-            latitude = try container.decode(Double.self, forKey: .latitude)
+            let latitudeString = try container.decode(String.self, forKey: .latitude)
+            latitude = (latitudeString as NSString).doubleValue
+            //latitude = try container.decode(Double.self, forKey: .latitude)
             longitude = try container.decode(Double.self, forKey: .longitude)
         } catch (let error) {
             print(error)
@@ -35,8 +37,8 @@ extension Geographic {
     
     var description: String {
         return """
-        \tLatitude: \(latitude)
-        \tLongitude: \(longitude)
+            \tLatitude: \(latitude)
+            \tLongitude: \(longitude)
         """
     }
 }

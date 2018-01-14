@@ -28,6 +28,7 @@ extension Address {
         let suite: String = try container.decode(String.self, forKey: .suite)
         let city: String = try container.decode(String.self, forKey: .city)
         let zipcode: String = try container.decode(String.self, forKey: .zipcode)
+        
         let geographic: Geographic = try container.decode(Geographic.self, forKey: .geographic)
         
         self.init(street: street, suite: suite, city: city, zipcode: zipcode, geographic: geographic)
